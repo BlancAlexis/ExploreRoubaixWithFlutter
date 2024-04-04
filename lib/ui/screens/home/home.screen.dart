@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:template_flutter_but/ui/screens/detail_view/detail_view_screen.dart';
 import 'package:template_flutter_but/ui/screens/home/home.state.dart';
 
 import 'home.viewmodel.dart';
@@ -29,7 +30,12 @@ class _HomeScreeenState extends ConsumerState<HomeScreen> {
                       (context, index) {
                         final place = state.listPlace!.details![index];
                         return GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                                showModalBottomSheet(
+                                  context: context,
+                                  builder: (context) =>  DetailViewScreen(resultEntity: place),
+                                );
+                            },
                             child: SizedBox(
                                 height: 30,
                                 width: 10,
