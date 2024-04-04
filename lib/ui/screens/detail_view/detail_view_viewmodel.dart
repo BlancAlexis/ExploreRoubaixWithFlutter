@@ -16,6 +16,4 @@ class DetailViewViewModel extends ViewModelAbs<DetailViewViewModel, DetailViewSt
 
 }
   DetailViewViewModel() : super(DetailViewState.initial());
-
-  Future<void> set
 }

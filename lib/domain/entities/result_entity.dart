@@ -1,34 +1,85 @@
-
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:template_flutter_but/domain/entities/photo_entity.dart';
 
 import 'geo_point_2d_entity.dart';
 
-class ResultEntity {
-  final int? monumHisComId;
-  final String? appellationCourante;
-  final PhotoEntity? photo;
-  final String? copyrightEtPropriete;
-  final String? epoque;
-  final List<String>? siecle;
-  final String? precisionSurLaProtection;
-  final DateTime? dateDeProtection;
-  final String? classement;
-  final String? statut;
-  final String? description;
-  final String? historique;
-  final String? auteur;
-  final String? region;
-  final String? departement;
-  final String? commune;
-  final String? niveauDeProtection;
-  final int? codeDepartement;
-  final int? insee;
-  final String? adresseBanSig;
-  final GeoPoint2DEntity? geoPoint2D;
-  final String? lat;
-  final String? long;
+part 'result_entity.g.dart';
 
-  const ResultEntity(
+
+@HiveType(typeId: 4)
+class ResultEntity extends HiveObject {
+  @HiveField(0)
+  final int? monumHisComId;
+
+  @HiveField(1)
+  final String? appellationCourante;
+
+  @HiveField(2)
+  final PhotoEntity? photo;
+
+  @HiveField(3)
+  final String? copyrightEtPropriete;
+
+  @HiveField(4)
+  final String? epoque;
+
+  // TODO @HiveField(5)
+  //   @HiveFieldAdapter(adapterName: 'StringListHiveAdapter')
+
+  final List<String>? siecle;
+
+  @HiveField(6)
+  final String? precisionSurLaProtection;
+
+  @HiveField(7)
+  final DateTime? dateDeProtection;
+
+  @HiveField(8)
+  final String? classement;
+
+  @HiveField(9)
+  final String? statut;
+
+  @HiveField(10)
+  final String? description;
+
+  @HiveField(11)
+  final String? historique;
+
+  @HiveField(12)
+  final String? auteur;
+
+  @HiveField(13)
+  final String? region;
+
+  @HiveField(14)
+  final String? departement;
+
+  @HiveField(15)
+  final String? commune;
+
+  @HiveField(16)
+  final String? niveauDeProtection;
+
+  @HiveField(17)
+  final int? codeDepartement;
+
+  @HiveField(18)
+  final int? insee;
+
+  @HiveField(19)
+  final String? adresseBanSig;
+
+  @HiveField(20)
+  final GeoPoint2DEntity? geoPoint2D;
+
+  @HiveField(21)
+  final String? lat;
+
+  @HiveField(22)
+  final String? long;
+  ResultEntity(
       {required this.monumHisComId,
         required this.appellationCourante,
         required this.photo,
