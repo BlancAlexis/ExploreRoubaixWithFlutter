@@ -12,17 +12,18 @@ class HomeScreen extends ConsumerStatefulWidget {
 }
 
 class _HomeScreeenState extends ConsumerState<HomeScreen> {
+
   @override
   Widget build(BuildContext context) {
     final HomeState state = ref.watch(homeProvider);
-
     return Scaffold(
         body: state.loading
             ? const Center(
                 child: CircularProgressIndicator(),
               )
             : CustomScrollView(
-                slivers: <Widget>[
+          controller: state.paginationScrollController!.scrollController,
+          slivers: <Widget>[
                   const SliverAppBar(title: Center(child: Text('Home Screen'))),
                   SliverList(
                     delegate: SliverChildBuilderDelegate(
@@ -52,5 +53,18 @@ class _HomeScreeenState extends ConsumerState<HomeScreen> {
                   ),
                 ],
               ));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    paginationScrollController.init(
+        loadAction: () async => {await _getNextPage()});
+
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 }

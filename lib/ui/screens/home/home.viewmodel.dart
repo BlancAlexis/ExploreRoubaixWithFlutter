@@ -5,6 +5,8 @@ import 'package:template_flutter_but/domain/repository/places.repository.dart';
 import 'package:template_flutter_but/ui/abstraction/view_model_abs.dart';
 import 'package:template_flutter_but/ui/screens/home/home.state.dart';
 
+import '../../utils/paginate_scroll_listener.dart';
+
 ///
 final StateNotifierProvider<HomeViewModel, HomeState> homeProvider =
     StateNotifierProvider<HomeViewModel, HomeState>(
