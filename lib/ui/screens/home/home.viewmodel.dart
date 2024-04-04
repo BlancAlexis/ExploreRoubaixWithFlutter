@@ -1,8 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:template_flutter_but/application/injections/initializer.dart';
+import 'package:template_flutter_but/domain/entities/place.entity.dart';
 import 'package:template_flutter_but/domain/repository/places.repository.dart';
 import 'package:template_flutter_but/ui/abstraction/view_model_abs.dart';
-import 'package:template_flutter_but/ui/screens/home.state.dart';
+import 'package:template_flutter_but/ui/screens/home/home.state.dart';
 
 ///
 final StateNotifierProvider<HomeViewModel, HomeState> homeProvider =
@@ -25,8 +26,11 @@ class HomeViewModel extends ViewModelAbs<HomeViewModel, HomeState> {
     state = state.copyWith(loading: value);
   }
 
-  void _init() {
+  void _init() async {
     // TODO - api call
-    _placesRepository.getPlaces();
+    updateLoading(true);
+    PlaceEntity placeEntity = await _placesRepository.getPlaces();
+    state = state.copyWith(listPlace: placeEntity);
+    updateLoading(false);
   }
 }
