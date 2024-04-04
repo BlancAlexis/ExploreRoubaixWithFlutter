@@ -20,7 +20,7 @@ class HomeViewModel extends ViewModelAbs<HomeViewModel, HomeState> {
 
   HomeViewModel({required PlacesRepository placesRepository})
       : _placesRepository = placesRepository,
-        super(const HomeState.initial()) {
+        super( HomeState.initial()) {
     _init();
   }
 
