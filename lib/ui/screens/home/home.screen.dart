@@ -48,9 +48,14 @@ class _HomeScreeenState extends ConsumerState<HomeScreen> {
                                   ),
                                   color: Colors.blue,
                                   elevation: 8,
-                                  child:  Center(
-                                    child: Text("${place.appellationCourante}" ),
-                                  ),
+                                  child:  Row(
+                                    children: [
+                                      if (place.photo != null)
+                                        Image.network(place.photo!.url!),
+
+                                      Text("${place.appellationCourante}" ),
+                                    ],
+                                  )
                                 )));
                       },
                       childCount: state.listPlace!.details!.length

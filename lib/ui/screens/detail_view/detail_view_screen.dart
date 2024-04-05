@@ -23,7 +23,11 @@ class _DetailViewModal extends ConsumerState<DetailViewScreen> {
     state.init(widget.resultEntity);
   return  Scaffold(
       body: Center(
-        child: Text("${state.resultEntity?.appellationCourante}"),
+        child: OutlinedButton(onPressed : () {
+          ref.read(detailProvider.notifier).putFavPlaces(state.resultEntity!);
+          ref.read(detailProvider.notifier).getFavoritePlaces();
+        },
+            child: Text("${state.resultEntity?.appellationCourante}")),
       ),
     );
 

@@ -4,6 +4,6 @@ import '../../../Result.dart';
 import '../../../network/models/place.model.dart';
 
 abstract class PlacesLocalDataSource {
-  Future<PlaceModel> getFavoritePlaces();
+  Future<Result<List<ResultEntity>>> getFavoritePlaces();
   Future<Result<void>> putFavoritePlaces(ResultEntity resultEntity);
 }

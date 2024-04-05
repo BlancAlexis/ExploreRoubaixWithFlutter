@@ -24,9 +24,8 @@ class ResultEntity extends HiveObject {
   @HiveField(4)
   final String? epoque;
 
-  // TODO @HiveField(5)
-  //   @HiveFieldAdapter(adapterName: 'StringListHiveAdapter')
-
+  // TODO adapter   @HiveFieldAdapter(adapterName: 'StringListHiveAdapter')
+   @HiveField(5)
   final List<String>? siecle;
 
   @HiveField(6)
