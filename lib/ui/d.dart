@@ -1,26 +1,32 @@
-import 'package:flutter/cupertino.dart';
-import 'package:template_flutter_but/domain/entities/place.entity.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:riverpod/riverpod.dart';
 import '../application/injections/initializer.dart';
+import '../domain/entities/place.entity.dart';
 import '../domain/repository/places.repository.dart';
 
 final mySingletonProvider = Provider<MySingleton>(
-      (ref) => MySingleton(),
-  name: 'MySingleton', // Nom unique pour le singleton
+      (ref) => MySingleton(
+  ),
+  name: 'MySingleton', // Ensure a unique name for the singleton
 );
 
 class MySingleton {
-  late final PlacesRepository placesRepository = injector<PlacesRepository>() ;
-  late PlaceEntity _data;
+  final PlacesRepository placesRepository;
+  late final Stream<PlaceEntity> _dataStream;
 
-  MySingleton() {
-    _fetchData();
+  MySingleton(): placesRepository = injector<PlacesRepository>() {
+    _dataStream = _fetchData().asStream();
   }
 
-  Future<void> _fetchData() async {
-    _data = await placesRepository.getPlaces();;
+  Future<PlaceEntity> _fetchData() async {
+    try {
+      final places = await placesRepository.getPlaces();
+      return places;
+    } catch (error) {
+      print('Error fetching places: $error');
+      throw error;
+    }
   }
 
-  PlaceEntity get data => _data;
+  Stream<PlaceEntity> get dataStream => _dataStream;
 }

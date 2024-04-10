@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:template_flutter_but/ui/screens/detail_view/detail_view_screen.dart';
 import 'package:template_flutter_but/ui/screens/home/home.state.dart';
 
+import '../../d.dart';
 import 'home.viewmodel.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {

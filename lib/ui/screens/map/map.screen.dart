@@ -2,16 +2,19 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class MapSample extends StatefulWidget {
+import '../../d.dart';
+
+class MapSample extends ConsumerStatefulWidget {
   const MapSample({super.key});
 
   @override
-  State<MapSample> createState() => MapSampleState();
+  ConsumerState<MapSample> createState() => MapSampleState();
 }
 
-class MapSampleState extends State<MapSample> {
+class MapSampleState extends ConsumerState<MapSample> {
   final Completer<GoogleMapController> _controller =
   Completer<GoogleMapController>();
 
