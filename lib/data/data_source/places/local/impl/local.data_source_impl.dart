@@ -10,7 +10,7 @@ import '../local.data_source.dart';
 
 @Singleton(as: PlacesLocalDataSource)
 class PlacesLocalDataSourceImpl implements PlacesLocalDataSource {
-  static const nameBox = 'favorite_spot';
+  static const String nameBox = 'favorite_spot';
   @override
   Future<Result<List<ResultEntityDatabase>>> getFavoritePlaces() async {
     try {

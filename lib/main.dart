@@ -6,6 +6,7 @@ import 'package:template_flutter_but/domain/database/geo_point_2d_entity_databas
 import 'package:template_flutter_but/domain/database/photo_entity_database.dart';
 import 'package:template_flutter_but/domain/database/result_entity_database.dart';
 import 'package:template_flutter_but/domain/entities/geo_point_2d_entity.dart';
+import 'package:template_flutter_but/ui/d.dart';
 import 'package:template_flutter_but/ui/screens/home/home.screen.dart';
 import 'package:template_flutter_but/ui/screens/nav_bar/nav_bar_ui.dart';
 
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    MySingleton();
     return const MaterialApp(
       title: 'Site historique',
       home: MyHomePage(title: '',),
