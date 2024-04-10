@@ -17,9 +17,10 @@ class PlaceModel {
   Map<String, dynamic> toJson() => _$PlaceModelToJson(this);
 
   PlaceEntity get toEntity => PlaceEntity(
-    totalCount: totalCount,
-    details: results?.map((ResultModel result) => result.toEntity).toList(),
-  );
+        totalCount: totalCount,
+        details: results?.map((ResultModel result) => result.toEntity).toList(),
+      );
+
   @override
   String toString() {
     return 'PlaceModel{totalCount: $totalCount, results: $results}';

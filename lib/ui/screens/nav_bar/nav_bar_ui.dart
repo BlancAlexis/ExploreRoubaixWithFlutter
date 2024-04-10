@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:template_flutter_but/ui/screens/favorite/favorite_view_screen.dart';
 import 'package:template_flutter_but/ui/screens/map/map.screen.dart';
@@ -41,13 +40,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               title: const Text('Lieux favories'),
               onTap: () {
-                 Navigator.push(
-                   context,
-                   MaterialPageRoute(
-                     builder: (context) => const FavoriteViewScreen(
-                     ),
-                   ),
-                 );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const FavoriteViewScreen(),
+                  ),
+                );
               },
             ),
             ListTile(

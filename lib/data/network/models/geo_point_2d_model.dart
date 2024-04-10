@@ -6,7 +6,6 @@ part 'geo_point_2d_model.g.dart';
 
 @JsonSerializable(explicitToJson: true, fieldRename: FieldRename.snake)
 class GeoPoint2DModel {
-
   final double lon;
   final double lat;
 
@@ -20,10 +19,7 @@ class GeoPoint2DModel {
 
   Map<String, dynamic> toJson() => _$GeoPoint2DModelToJson(this);
 
-  GeoPoint2DEntity get toEntity => GeoPoint2DEntity(
-      lon: lon,
-      lat: lat
-  );
+  GeoPoint2DEntity get toEntity => GeoPoint2DEntity(lon: lon, lat: lat);
 
   @override
   String toString() {

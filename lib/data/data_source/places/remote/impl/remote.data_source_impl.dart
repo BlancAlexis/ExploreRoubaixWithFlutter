@@ -9,6 +9,7 @@ class PlacesRemoteDataSourceImpl implements PlacesRemoteDataSource {
 
   PlacesRemoteDataSourceImpl({required PlacesEndpoint placesEndpoint})
       : _placesEndpoint = placesEndpoint;
+
   @override
   Future<PlaceModel> getPlaces() {
     return _placesEndpoint.getPlaces();

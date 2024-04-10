@@ -1,23 +1,22 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:template_flutter_but/application/injections/initializer.dart';
-import 'package:template_flutter_but/domain/entities/place.entity.dart';
-import 'package:template_flutter_but/domain/repository/places.repository.dart';
 import 'package:template_flutter_but/ui/abstraction/view_model_abs.dart';
+import 'package:template_flutter_but/ui/place_entity_singleton.dart';
 import 'package:template_flutter_but/ui/screens/home/home.state.dart';
 
 ///
 final StateNotifierProvider<HomeViewModel, HomeState> homeProvider =
     StateNotifierProvider<HomeViewModel, HomeState>(
   (StateNotifierProviderRef<HomeViewModel, HomeState> ref) => HomeViewModel(
-    placesRepository: injector<PlacesRepository>(),
+    placeEntitySingleton: injector<PlaceEntitySingleton>(),
   ),
 );
 
 class HomeViewModel extends ViewModelAbs<HomeViewModel, HomeState> {
-  final PlacesRepository _placesRepository;
+  final PlaceEntitySingleton placeEntitySingleton;
 
-  HomeViewModel({required PlacesRepository placesRepository})
-      : _placesRepository = placesRepository,
+  HomeViewModel({required PlaceEntitySingleton placeEntitySingleton})
+      : placeEntitySingleton = placeEntitySingleton,
         super(const HomeState.initial()) {
     _init();
   }
@@ -27,10 +26,10 @@ class HomeViewModel extends ViewModelAbs<HomeViewModel, HomeState> {
   }
 
   void _init() async {
-    // TODO - api call
     updateLoading(true);
-    PlaceEntity placeEntity = await _placesRepository.getPlaces();
-    state = state.copyWith(listPlace: placeEntity);
+    placeEntitySingleton.dataStream.listen((event) {
+      state = state.copyWith(listPlace: event);
+    });
     updateLoading(false);
   }
 }

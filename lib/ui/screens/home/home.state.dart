@@ -12,12 +12,13 @@ class HomeState extends ViewStateAbs {
 
   const HomeState({required this.loading, required this.listPlace});
 
-  const HomeState.initial() : loading = false, listPlace = null;
-
+  const HomeState.initial()
+      : loading = false,
+        listPlace = null;
 
   @override
   List<Object?> get props => <Object?>[
         loading,
-    listPlace,
+        listPlace,
       ];
 }

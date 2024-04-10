@@ -1,29 +1,29 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'place.entity_database.dart';
+part of 'place.model_database.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class PlaceEntityDatabaseAdapter extends TypeAdapter<PlaceEntityDatabase> {
+class PlaceModelDatabaseAdapter extends TypeAdapter<PlaceModelDatabase> {
   @override
   final int typeId = 3;
 
   @override
-  PlaceEntityDatabase read(BinaryReader reader) {
+  PlaceModelDatabase read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return PlaceEntityDatabase(
+    return PlaceModelDatabase(
       totalCount: fields[0] as int?,
       details: (fields[1] as List?)?.cast<ResultEntity>(),
     );
   }
 
   @override
-  void write(BinaryWriter writer, PlaceEntityDatabase obj) {
+  void write(BinaryWriter writer, PlaceModelDatabase obj) {
     writer
       ..writeByte(2)
       ..writeByte(0)
@@ -38,7 +38,7 @@ class PlaceEntityDatabaseAdapter extends TypeAdapter<PlaceEntityDatabase> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is PlaceEntityDatabaseAdapter &&
+      other is PlaceModelDatabaseAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

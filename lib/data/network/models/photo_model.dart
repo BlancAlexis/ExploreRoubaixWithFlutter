@@ -1,14 +1,10 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:template_flutter_but/data/network/models/format_enum.dart';
 import 'package:template_flutter_but/domain/entities/photo_entity.dart';
-
-
-
 part 'photo_model.g.dart';
 
 @JsonSerializable(explicitToJson: true, fieldRename: FieldRename.snake)
 class PhotoModel {
-
   final int? exifOrientation;
   final bool? thumbnail;
   final String? filename;
@@ -22,15 +18,14 @@ class PhotoModel {
 
   const PhotoModel(
       {required this.exifOrientation,
-        required this.thumbnail,
-        required this.filename,
-        required this.format,
-        required this.width,
-        required this.id,
-        required this.height,
-        required this.colorSummary,
-        required this.url
-      });
+      required this.thumbnail,
+      required this.filename,
+      required this.format,
+      required this.width,
+      required this.id,
+      required this.height,
+      required this.colorSummary,
+      required this.url});
 
   factory PhotoModel.fromJson(Map<String, dynamic> json) =>
       _$PhotoModelFromJson(json);
@@ -46,12 +41,10 @@ class PhotoModel {
       id: id,
       height: height,
       colorSummary: colorSummary,
-      url: url
-  );
+      url: url);
 
   @override
   String toString() {
     return 'PhotoModel{exifOrientation: $exifOrientation, thumbnail: $thumbnail, filename: $filename, format: $format, width: $width, id: $id, height: $height, colorSummary: $colorSummary, url: $url}';
   }
 }
-

@@ -1,25 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'result_entity_database.dart';
+part of 'result_model_database.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class ResultEntityDatabaseAdapter extends TypeAdapter<ResultEntityDatabase> {
+class ResultModelDatabaseAdapter extends TypeAdapter<ResultModelDatabase> {
   @override
   final int typeId = 4;
 
   @override
-  ResultEntityDatabase read(BinaryReader reader) {
+  ResultModelDatabase read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return ResultEntityDatabase(
+    return ResultModelDatabase(
       monumHisComId: fields[0] as int?,
       appellationCourante: fields[1] as String?,
-      photo: fields[2] as PhotoEntityDatabase?,
+      photo: fields[2] as PhotoModelDatabase?,
       copyrightEtPropriete: fields[3] as String?,
       epoque: fields[4] as String?,
       siecle: (fields[5] as List?)?.cast<String>(),
@@ -37,14 +37,14 @@ class ResultEntityDatabaseAdapter extends TypeAdapter<ResultEntityDatabase> {
       codeDepartement: fields[17] as int?,
       insee: fields[18] as int?,
       adresseBanSig: fields[19] as String?,
-      geoPoint2D: fields[20] as GeoPoint2DEntityDatabase?,
+      geoPoint2D: fields[20] as GeoPoint2DModelDatabase?,
       lat: fields[21] as String?,
       long: fields[22] as String?,
     );
   }
 
   @override
-  void write(BinaryWriter writer, ResultEntityDatabase obj) {
+  void write(BinaryWriter writer, ResultModelDatabase obj) {
     writer
       ..writeByte(23)
       ..writeByte(0)
@@ -101,7 +101,7 @@ class ResultEntityDatabaseAdapter extends TypeAdapter<ResultEntityDatabase> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ResultEntityDatabaseAdapter &&
+      other is ResultModelDatabaseAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

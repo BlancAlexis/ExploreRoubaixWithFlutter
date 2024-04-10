@@ -5,9 +5,9 @@ import '../../../domain/entities/result_entity.dart';
 import 'geo_point_2d_model.dart';
 
 part 'result_model.g.dart';
+
 @JsonSerializable(explicitToJson: true, fieldRename: FieldRename.snake)
 class ResultModel {
-
   final int? monumHisComId;
   final String? appellationCourante;
   final PhotoModel? photo;
@@ -64,30 +64,30 @@ class ResultModel {
   Map<String, dynamic> toJson() => _$ResultModelToJson(this);
 
   ResultEntity get toEntity => ResultEntity(
-    monumHisComId: monumHisComId,
-    appellationCourante: appellationCourante,
-    photo: photo?.toEntity,
-    copyrightEtPropriete: copyrightEtPropriete,
-    epoque: epoque,
-    siecle: siecle,
-    precisionSurLaProtection: precisionSurLaProtection,
-    dateDeProtection: dateDeProtection,
-    classement: classement,
-    statut: statut,
-    description: description,
-    historique: historique,
-    auteur: auteur,
-    region: region,
-    departement: departement,
-    commune: commune,
-    niveauDeProtection: niveauDeProtection,
-    codeDepartement: codeDepartement,
-    insee: insee,
-    adresseBanSig: adresseBanSig,
-    geoPoint2D: geoPoint2D?.toEntity,
-    lat: lat,
-    long: long,
-  );
+        monumHisComId: monumHisComId,
+        appellationCourante: appellationCourante,
+        photo: photo?.toEntity,
+        copyrightEtPropriete: copyrightEtPropriete,
+        epoque: epoque,
+        siecle: siecle,
+        precisionSurLaProtection: precisionSurLaProtection,
+        dateDeProtection: dateDeProtection,
+        classement: classement,
+        statut: statut,
+        description: description,
+        historique: historique,
+        auteur: auteur,
+        region: region,
+        departement: departement,
+        commune: commune,
+        niveauDeProtection: niveauDeProtection,
+        codeDepartement: codeDepartement,
+        insee: insee,
+        adresseBanSig: adresseBanSig,
+        geoPoint2D: geoPoint2D?.toEntity,
+        lat: lat,
+        long: long,
+      );
 
   @override
   String toString() {

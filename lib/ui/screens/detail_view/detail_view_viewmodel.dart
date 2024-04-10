@@ -7,14 +7,17 @@ import '../../../data/Result.dart';
 import '../../../domain/entities/result_entity.dart';
 import '../../abstraction/view_model_abs.dart';
 
-final StateNotifierProvider<DetailViewViewModel, DetailViewState> detailProvider =
-StateNotifierProvider<DetailViewViewModel, DetailViewState>(
-      (StateNotifierProviderRef<DetailViewViewModel, DetailViewState> ref) => DetailViewViewModel(
-        placesRepository: injector<PlacesLocalRepository>(),
-      ),
+final StateNotifierProvider<DetailViewViewModel, DetailViewState>
+    detailProvider =
+    StateNotifierProvider<DetailViewViewModel, DetailViewState>(
+  (StateNotifierProviderRef<DetailViewViewModel, DetailViewState> ref) =>
+      DetailViewViewModel(
+    placesRepository: injector<PlacesLocalRepository>(),
+  ),
 );
 
-class DetailViewViewModel extends ViewModelAbs<DetailViewViewModel, DetailViewState> {
+class DetailViewViewModel
+    extends ViewModelAbs<DetailViewViewModel, DetailViewState> {
   final PlacesLocalRepository _placesRepository;
 
   init(ResultEntity resultEntity) {
@@ -22,28 +25,31 @@ class DetailViewViewModel extends ViewModelAbs<DetailViewViewModel, DetailViewSt
   }
 
   Future<List<ResultEntity>> getFavoritePlaces() async {
-    Result<List<ResultEntity>> result = await _placesRepository.getFavoritePlaces();
-    if(result is Success) {
+    Result<List<ResultEntity>> result =
+        await _placesRepository.getFavoritePlaces();
+    if (result is Success) {
       return (result as Success<List<ResultEntity>>).data;
     } else {
-   //   print(${(result as Error).exception});
+      //   print(${(result as Error).exception});
       return [];
     }
   }
 
   Future<void> putFavPlaces(ResultEntity resultEntity) async {
-    Result<void> result = await _placesRepository.putFavoritePlaces(resultEntity);
-    if(result is Success) {
+    Result<void> result =
+        await _placesRepository.putFavoritePlaces(resultEntity);
+    if (result is Success) {
       print('Success');
-      return ;
+      return;
     } else {
-        print("Error");
-      return ;
+      print("Error");
+      return;
     }
   }
-    DetailViewViewModel({required PlacesLocalRepository placesRepository})
-    : _placesRepository = placesRepository,
-    super(DetailViewState.initial());
+
+  DetailViewViewModel({required PlacesLocalRepository placesRepository})
+      : _placesRepository = placesRepository,
+        super(DetailViewState.initial());
 
 //  DetailViewViewModel() : super(DetailViewState.initial());
 }

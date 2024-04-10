@@ -9,6 +9,8 @@ part of 'favorite_view_state.dart';
 abstract class _$FavoriteViewStateCWProxy {
   FavoriteViewState resultsEntity(List<ResultEntity>? resultsEntity);
 
+  FavoriteViewState loading(bool loading);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `FavoriteViewState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -17,6 +19,7 @@ abstract class _$FavoriteViewStateCWProxy {
   /// ````
   FavoriteViewState call({
     List<ResultEntity>? resultsEntity,
+    bool? loading,
   });
 }
 
@@ -31,6 +34,9 @@ class _$FavoriteViewStateCWProxyImpl implements _$FavoriteViewStateCWProxy {
       this(resultsEntity: resultsEntity);
 
   @override
+  FavoriteViewState loading(bool loading) => this(loading: loading);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `FavoriteViewState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -40,12 +46,17 @@ class _$FavoriteViewStateCWProxyImpl implements _$FavoriteViewStateCWProxy {
   /// ````
   FavoriteViewState call({
     Object? resultsEntity = const $CopyWithPlaceholder(),
+    Object? loading = const $CopyWithPlaceholder(),
   }) {
     return FavoriteViewState(
-      resultsEntity == const $CopyWithPlaceholder()
+      resultsEntity: resultsEntity == const $CopyWithPlaceholder()
           ? _value.resultsEntity
           // ignore: cast_nullable_to_non_nullable
           : resultsEntity as List<ResultEntity>?,
+      loading: loading == const $CopyWithPlaceholder() || loading == null
+          ? _value.loading
+          // ignore: cast_nullable_to_non_nullable
+          : loading as bool,
     );
   }
 }

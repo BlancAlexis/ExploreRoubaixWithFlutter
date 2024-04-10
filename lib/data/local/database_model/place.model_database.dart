@@ -1,16 +1,17 @@
-import 'package:template_flutter_but/domain/entities/result_entity.dart';
 import 'package:hive/hive.dart';
+import 'package:template_flutter_but/domain/entities/result_entity.dart';
 
-part 'place.entity_database.g.dart';
+part 'place.model_database.g.dart';
+
 
 @HiveType(typeId: 3)
-class PlaceEntityDatabase extends HiveObject {
+class PlaceModelDatabase extends HiveObject {
   @HiveField(0)
   final int? totalCount;
   @HiveField(1)
   final List<ResultEntity>? details;
 
-   PlaceEntityDatabase({required this.totalCount, required this.details});
+  PlaceModelDatabase({required this.totalCount, required this.details});
 
   @override
   String toString() {

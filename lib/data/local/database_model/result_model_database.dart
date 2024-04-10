@@ -1,56 +1,85 @@
-import 'package:template_flutter_but/domain/entities/photo_entity.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:template_flutter_but/data/local/database_model/photo_model_database.dart';
 
-import '../../data/local/database_model/result_model_database.dart';
-import 'geo_point_2d_entity.dart';
+import '../../../domain/entities/result_entity.dart';
+import 'geo_point_2d_model_database.dart';
 
-class ResultEntity {
+part 'result_model_database.g.dart';
+
+
+@HiveType(typeId: 4)
+class ResultModelDatabase extends HiveObject {
+  @HiveField(0)
   final int? monumHisComId;
 
+  @HiveField(1)
   final String? appellationCourante;
 
-  final PhotoEntity? photo;
+  @HiveField(2)
+  final PhotoModelDatabase? photo;
 
+  @HiveField(3)
   final String? copyrightEtPropriete;
 
+  @HiveField(4)
   final String? epoque;
 
+  @HiveField(5)
   final List<String>? siecle;
 
+  @HiveField(6)
   final String? precisionSurLaProtection;
 
+  @HiveField(7)
   final DateTime? dateDeProtection;
 
+  @HiveField(8)
   final String? classement;
 
+  @HiveField(9)
   final String? statut;
 
+  @HiveField(10)
   final String? description;
 
+  @HiveField(11)
   final String? historique;
 
+  @HiveField(12)
   final String? auteur;
 
+  @HiveField(13)
   final String? region;
 
+  @HiveField(14)
   final String? departement;
 
+  @HiveField(15)
   final String? commune;
 
+  @HiveField(16)
   final String? niveauDeProtection;
 
+  @HiveField(17)
   final int? codeDepartement;
 
+  @HiveField(18)
   final int? insee;
 
+  @HiveField(19)
   final String? adresseBanSig;
 
-  final GeoPoint2DEntity? geoPoint2D;
+  @HiveField(20)
+  final GeoPoint2DModelDatabase? geoPoint2D;
 
+  @HiveField(21)
   final String? lat;
 
+  @HiveField(22)
   final String? long;
 
-  ResultEntity(
+  ResultModelDatabase(
       {required this.monumHisComId,
       required this.appellationCourante,
       required this.photo,
@@ -75,10 +104,10 @@ class ResultEntity {
       required this.lat,
       required this.long});
 
-  ResultModelDatabase get toEntityDataBase => ResultModelDatabase(
+  ResultEntity get toEntity => ResultEntity(
         monumHisComId: monumHisComId,
         appellationCourante: appellationCourante,
-        photo: photo?.toEntityDataBase,
+        photo: photo?.toEntity,
         copyrightEtPropriete: copyrightEtPropriete,
         epoque: epoque,
         siecle: siecle,
@@ -96,7 +125,7 @@ class ResultEntity {
         codeDepartement: codeDepartement,
         insee: insee,
         adresseBanSig: adresseBanSig,
-        geoPoint2D: geoPoint2D?.toEntityDataBase,
+        geoPoint2D: geoPoint2D?.toEntity,
         lat: lat,
         long: long,
       );

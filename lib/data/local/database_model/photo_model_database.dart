@@ -1,18 +1,35 @@
-import '../../data/local/database_model/photo_model_database.dart';
-import '../../data/network/models/format_enum.dart';
+import 'package:hive/hive.dart';
 
-class PhotoEntity {
+import '../../../domain/entities/photo_entity.dart';
+import '../../network/models/format_enum.dart';
+
+
+
+part 'photo_model_database.g.dart';
+
+
+@HiveType(typeId: 2)
+class PhotoModelDatabase extends HiveObject {
+  @HiveField(0)
   final int? exifOrientation;
+  @HiveField(1)
   final bool? thumbnail;
+  @HiveField(2)
   final String? filename;
-  final FormatEnum? format;
+  @HiveField(3)
+  final String? format;
+  @HiveField(4)
   final int? width;
+  @HiveField(5)
   final String? id;
+  @HiveField(6)
   final int? height;
+  @HiveField(7)
   final List<String>? colorSummary;
+  @HiveField(8)
   final String? url;
 
-  PhotoEntity(
+  PhotoModelDatabase(
       {required this.exifOrientation,
       required this.thumbnail,
       required this.filename,
@@ -23,12 +40,13 @@ class PhotoEntity {
       required this.colorSummary,
       required this.url});
 
-  get toEntityDataBase => PhotoModelDatabase(
+  get toEntity => PhotoEntity(
         exifOrientation: exifOrientation,
         thumbnail: thumbnail,
         filename: filename,
-        format: formatEnumToString(format!),
-        //TODO format
+        format: format == null
+            ? null
+            : FormatEnum.values.firstWhere((e) => e.name == format),
         width: width,
         id: id,
         height: height,

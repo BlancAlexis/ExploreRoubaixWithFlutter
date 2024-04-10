@@ -1,20 +1,19 @@
-import 'package:hive/hive.dart';
 
-import '../database/geo_point_2d_entity_database.dart';
+import '../../data/local/database_model/geo_point_2d_model_database.dart';
 
-class GeoPoint2DEntity  {
+class GeoPoint2DEntity {
   final double lon;
   final double lat;
 
-  GeoPoint2DEntity(
-      {required this.lon,
-        required this.lat,
-      });
+  GeoPoint2DEntity({
+    required this.lon,
+    required this.lat,
+  });
 
-  get toEntityDataBase => GeoPoint2DEntityDatabase(
-    lon: lon,
-    lat: lat,
-  );
+  get toEntityDataBase => GeoPoint2DModelDatabase(
+        lon: lon,
+        lat: lat,
+      );
 
   @override
   String toString() {

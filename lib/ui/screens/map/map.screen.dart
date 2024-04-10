@@ -1,11 +1,9 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
-import '../../d.dart';
+import 'package:template_flutter_but/ui/screens/map/map.viewmodel.dart';
 
 class MapSample extends ConsumerStatefulWidget {
   const MapSample({super.key});
@@ -16,7 +14,7 @@ class MapSample extends ConsumerStatefulWidget {
 
 class MapSampleState extends ConsumerState<MapSample> {
   final Completer<GoogleMapController> _controller =
-  Completer<GoogleMapController>();
+      Completer<GoogleMapController>();
 
   static const CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(37.42796133580664, -122.085749655962),
@@ -31,9 +29,11 @@ class MapSampleState extends ConsumerState<MapSample> {
 
   @override
   Widget build(BuildContext context) {
+    final state = ref.watch(mapsProvider);
     return Scaffold(
       body: GoogleMap(
         mapType: MapType.hybrid,
+        markers: state.markers.toSet(),
         initialCameraPosition: _kGooglePlex,
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
