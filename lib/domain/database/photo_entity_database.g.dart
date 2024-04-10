@@ -20,7 +20,7 @@ class PhotoEntityDatabaseAdapter extends TypeAdapter<PhotoEntityDatabase> {
       exifOrientation: fields[0] as int?,
       thumbnail: fields[1] as bool?,
       filename: fields[2] as String?,
-      format: fields[3] as FormatEnum,
+      format: fields[3] as String?,
       width: fields[4] as int?,
       id: fields[5] as String?,
       height: fields[6] as int?,

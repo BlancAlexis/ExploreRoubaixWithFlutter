@@ -29,13 +29,13 @@ class PhotoEntityDatabase extends HiveObject {
       {required this.exifOrientation,
         required this.thumbnail,
         required this.filename,
-        required FormatEnum format,
+        required this.format,
         required this.width,
         required this.id,
         required this.height,
         required this.colorSummary,
         required this.url
-      }): format = format.name;
+      });
 
   get toEntity => PhotoEntity(
     exifOrientation: exifOrientation,

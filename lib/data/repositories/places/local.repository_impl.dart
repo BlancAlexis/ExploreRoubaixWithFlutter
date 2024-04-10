@@ -19,7 +19,7 @@ class LocalRepositoryImpl implements PlacesLocalRepository {
   Future<Result<List<ResultEntity>>> getFavoritePlaces() {
     return localDataSource.getFavoritePlaces().then((value) {
       if (value is Success) {
-        return Success(data: (value as Success).data.map((e) => e.toEntity).toList());
+        return Success(data: List<ResultEntity>.from((value as Success).data.map((e) => e.toEntity).toList()));
       } else {
         return Error(exception: (value as Error).exception);
       }

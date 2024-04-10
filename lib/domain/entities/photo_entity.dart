@@ -29,7 +29,7 @@ class PhotoEntity {
     exifOrientation: exifOrientation,
     thumbnail: thumbnail,
     filename: filename,
-    format: format!,
+    format: formatEnumToString(format!), //TODO format
     width: width,
     id: id,
     height: height,
