@@ -1,17 +1,22 @@
 import 'package:hive/hive.dart';
 
-import '../database/geo_point_2d_entity_database.dart';
+import '../entities/geo_point_2d_entity.dart';
 
-class GeoPoint2DEntity  {
+part 'geo_point_2d_entity_database.g.dart';
+
+@HiveType(typeId: 0)
+class GeoPoint2DEntityDatabase extends HiveObject {
+  @HiveField(0)
   final double lon;
+  @HiveField(1)
   final double lat;
 
-  GeoPoint2DEntity(
+  GeoPoint2DEntityDatabase(
       {required this.lon,
         required this.lat,
       });
 
-  get toEntityDataBase => GeoPoint2DEntityDatabase(
+  get toEntity =>   GeoPoint2DEntity(
     lon: lon,
     lat: lat,
   );

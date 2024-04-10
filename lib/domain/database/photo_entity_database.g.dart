@@ -1,26 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'photo_entity.dart';
+part of 'photo_entity_database.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class PhotoEntityAdapter extends TypeAdapter<PhotoEntity> {
+class PhotoEntityDatabaseAdapter extends TypeAdapter<PhotoEntityDatabase> {
   @override
   final int typeId = 2;
 
   @override
-  PhotoEntity read(BinaryReader reader) {
+  PhotoEntityDatabase read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return PhotoEntity(
+    return PhotoEntityDatabase(
       exifOrientation: fields[0] as int?,
       thumbnail: fields[1] as bool?,
       filename: fields[2] as String?,
-      format: fields[3] as FormatEnum?,
+      format: fields[3] as FormatEnum,
       width: fields[4] as int?,
       id: fields[5] as String?,
       height: fields[6] as int?,
@@ -30,7 +30,7 @@ class PhotoEntityAdapter extends TypeAdapter<PhotoEntity> {
   }
 
   @override
-  void write(BinaryWriter writer, PhotoEntity obj) {
+  void write(BinaryWriter writer, PhotoEntityDatabase obj) {
     writer
       ..writeByte(9)
       ..writeByte(0)
@@ -59,7 +59,7 @@ class PhotoEntityAdapter extends TypeAdapter<PhotoEntity> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is PhotoEntityAdapter &&
+      other is PhotoEntityDatabaseAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

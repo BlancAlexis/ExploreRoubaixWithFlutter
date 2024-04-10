@@ -31,7 +31,7 @@ class DetailViewViewModel extends ViewModelAbs<DetailViewViewModel, DetailViewSt
     }
   }
 
-  void putFavPlaces(ResultEntity resultEntity) async {
+  Future<void> putFavPlaces(ResultEntity resultEntity) async {
     Result<void> result = await _placesRepository.putFavoritePlaces(resultEntity);
     if(result is Success) {
       print('Success');

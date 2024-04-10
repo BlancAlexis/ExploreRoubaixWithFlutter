@@ -1,25 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'result_entity.dart';
+part of 'result_entity_database.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class ResultEntityAdapter extends TypeAdapter<ResultEntity> {
+class ResultEntityDatabaseAdapter extends TypeAdapter<ResultEntityDatabase> {
   @override
   final int typeId = 4;
 
   @override
-  ResultEntity read(BinaryReader reader) {
+  ResultEntityDatabase read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return ResultEntity(
+    return ResultEntityDatabase(
       monumHisComId: fields[0] as int?,
       appellationCourante: fields[1] as String?,
-      photo: fields[2] as PhotoEntity?,
+      photo: fields[2] as PhotoEntityDatabase?,
       copyrightEtPropriete: fields[3] as String?,
       epoque: fields[4] as String?,
       siecle: (fields[5] as List?)?.cast<String>(),
@@ -37,14 +37,14 @@ class ResultEntityAdapter extends TypeAdapter<ResultEntity> {
       codeDepartement: fields[17] as int?,
       insee: fields[18] as int?,
       adresseBanSig: fields[19] as String?,
-      geoPoint2D: fields[20] as GeoPoint2DEntity?,
+      geoPoint2D: fields[20] as GeoPoint2DEntityDatabase?,
       lat: fields[21] as String?,
       long: fields[22] as String?,
     );
   }
 
   @override
-  void write(BinaryWriter writer, ResultEntity obj) {
+  void write(BinaryWriter writer, ResultEntityDatabase obj) {
     writer
       ..writeByte(23)
       ..writeByte(0)
@@ -101,7 +101,7 @@ class ResultEntityAdapter extends TypeAdapter<ResultEntity> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ResultEntityAdapter &&
+      other is ResultEntityDatabaseAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
