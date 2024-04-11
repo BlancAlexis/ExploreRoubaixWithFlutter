@@ -1,4 +1,3 @@
-
 import '../../data/local/database_model/geo_point_2d_model_database.dart';
 
 class GeoPoint2DEntity {

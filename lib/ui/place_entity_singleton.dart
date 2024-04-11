@@ -1,10 +1,7 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:injectable/injectable.dart';
 
-import '../application/injections/initializer.dart';
 import '../domain/entities/place.entity.dart';
 import '../domain/repository/places.repository.dart';
-
 
 @singleton
 class PlaceEntitySingleton {
@@ -12,7 +9,7 @@ class PlaceEntitySingleton {
   late final Stream<PlaceEntity> placesStream;
   late PlaceEntity places;
 
-  PlaceEntitySingleton(this.placesRepository){
+  PlaceEntitySingleton(this.placesRepository) {
     placesStream = fetchPlaces().asStream();
   }
 

@@ -33,9 +33,9 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Colors.transparent,
               ),
-              child: Text('Drawer Header'),
+              child: Image(image: AssetImage('assets/roubaix.png')),
             ),
             ListTile(
               title: const Text('Lieux favories'),
@@ -46,12 +46,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     builder: (context) => const FavoriteViewScreen(),
                   ),
                 );
-              },
-            ),
-            ListTile(
-              title: const Text('Item 2'),
-              onTap: () {
-                Navigator.pop(context);
               },
             ),
           ],

@@ -7,7 +7,7 @@ part of 'favorite_view_state.dart';
 // **************************************************************************
 
 abstract class _$FavoriteViewStateCWProxy {
-  FavoriteViewState resultsEntity(List<ResultEntity>? resultsEntity);
+  FavoriteViewState listrResultEntity(List<ResultEntity>? listrResultEntity);
 
   FavoriteViewState loading(bool loading);
 
@@ -18,7 +18,7 @@ abstract class _$FavoriteViewStateCWProxy {
   /// FavoriteViewState(...).copyWith(id: 12, name: "My name")
   /// ````
   FavoriteViewState call({
-    List<ResultEntity>? resultsEntity,
+    List<ResultEntity>? listrResultEntity,
     bool? loading,
   });
 }
@@ -30,8 +30,8 @@ class _$FavoriteViewStateCWProxyImpl implements _$FavoriteViewStateCWProxy {
   final FavoriteViewState _value;
 
   @override
-  FavoriteViewState resultsEntity(List<ResultEntity>? resultsEntity) =>
-      this(resultsEntity: resultsEntity);
+  FavoriteViewState listrResultEntity(List<ResultEntity>? listrResultEntity) =>
+      this(listrResultEntity: listrResultEntity);
 
   @override
   FavoriteViewState loading(bool loading) => this(loading: loading);
@@ -45,14 +45,14 @@ class _$FavoriteViewStateCWProxyImpl implements _$FavoriteViewStateCWProxy {
   /// FavoriteViewState(...).copyWith(id: 12, name: "My name")
   /// ````
   FavoriteViewState call({
-    Object? resultsEntity = const $CopyWithPlaceholder(),
+    Object? listrResultEntity = const $CopyWithPlaceholder(),
     Object? loading = const $CopyWithPlaceholder(),
   }) {
     return FavoriteViewState(
-      resultsEntity: resultsEntity == const $CopyWithPlaceholder()
-          ? _value.resultsEntity
+      listrResultEntity: listrResultEntity == const $CopyWithPlaceholder()
+          ? _value.listrResultEntity
           // ignore: cast_nullable_to_non_nullable
-          : resultsEntity as List<ResultEntity>?,
+          : listrResultEntity as List<ResultEntity>?,
       loading: loading == const $CopyWithPlaceholder() || loading == null
           ? _value.loading
           // ignore: cast_nullable_to_non_nullable

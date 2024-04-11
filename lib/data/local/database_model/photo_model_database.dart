@@ -2,11 +2,7 @@ import 'package:hive/hive.dart';
 
 import '../../../domain/entities/photo_entity.dart';
 import '../../network/models/format_enum.dart';
-
-
-
 part 'photo_model_database.g.dart';
-
 
 @HiveType(typeId: 2)
 class PhotoModelDatabase extends HiveObject {

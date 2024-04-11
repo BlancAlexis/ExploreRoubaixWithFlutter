@@ -86,8 +86,9 @@ class _HomeScreeenState extends ConsumerState<HomeScreen> {
                                               children: [
                                                 Row(
                                                   mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
                                                   children: [
                                                     Center(
                                                         child: Text(
@@ -96,12 +97,16 @@ class _HomeScreeenState extends ConsumerState<HomeScreen> {
                                                 ),
                                                 Row(
                                                   mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
                                                   children: [
                                                     Center(
                                                         child: Text(
-                                                            "${place.adresseBanSig} ${place.epoque}", overflow: TextOverflow.ellipsis)),
+                                                            "${place.adresseBanSig} ${place.epoque}",
+                                                            overflow:
+                                                                TextOverflow
+                                                                    .ellipsis)),
                                                   ],
                                                 )
                                               ],
@@ -112,8 +117,8 @@ class _HomeScreeenState extends ConsumerState<HomeScreen> {
                                           children: [
                                             Text("${place.auteur}",
                                                 style: const TextStyle(
-                                                    fontSize: 10)
-                                                , overflow: TextOverflow.clip)
+                                                    fontSize: 10),
+                                                overflow: TextOverflow.clip)
                                           ],
                                         ),
                                       ],
@@ -142,5 +147,4 @@ class _HomeScreeenState extends ConsumerState<HomeScreen> {
 //   return Color.fromRGBO(
 //       colorComponents[0], colorComponents[1], colorComponents[2],255);
 // }
-
 }

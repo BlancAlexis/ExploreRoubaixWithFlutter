@@ -27,16 +27,13 @@ class MapsState extends ViewStateAbs {
     bool? loading,
     PlaceEntity? listPlace,
     List<Marker>? markers,
-  }) => MapsState(
-    loading: loading ?? this.loading,
-    listPlace: listPlace ?? this.listPlace,
-    markers: markers ?? this.markers,
-  );
+  }) =>
+      MapsState(
+        loading: loading ?? this.loading,
+        listPlace: listPlace ?? this.listPlace,
+        markers: markers ?? this.markers,
+      );
 
   @override
-  List<Object?> get props => <Object?>[
-    loading,
-    listPlace,
-    markers
-  ];
+  List<Object?> get props => <Object?>[loading, listPlace, markers];
 }

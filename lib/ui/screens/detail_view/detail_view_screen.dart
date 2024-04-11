@@ -23,7 +23,7 @@ class _DetailViewModal extends ConsumerState<DetailViewScreen> {
 
     return Scaffold(
       body: Center(
-            child: Text("MOI", style: TextStyle(fontSize: 20, color: Colors.blue)),
+        child: Text("MOI", style: TextStyle(fontSize: 20, color: Colors.blue)),
       ),
     );
   }
@@ -31,7 +31,7 @@ class _DetailViewModal extends ConsumerState<DetailViewScreen> {
   @override
   void initState() {
     super.initState();
-  ref.read(detailProvider.notifier).init(widget.resultEntity);
+    ref.read(detailProvider.notifier).init(widget.resultEntity);
   }
 
   @override

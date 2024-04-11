@@ -31,14 +31,13 @@ class FavoritePlaceViewModel
     if (result is Success) {
       print('oyoyoyoyyoyo');
       state = state.copyWith(
-          resultsEntity: (result as Success<List<ResultEntity>>).data,
+          listrResultEntity: (result as Success<List<ResultEntity>>).data,
           loading: false);
     } else {
       //   print(${(result as Error).exception});
       return;
     }
   }
-
 
   FavoritePlaceViewModel({required PlacesLocalRepository placesRepository})
       : _placesRepository = placesRepository,

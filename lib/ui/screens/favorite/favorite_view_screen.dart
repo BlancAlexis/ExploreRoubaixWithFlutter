@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:template_flutter_but/ui/screens/favorite/favorite_view_state.dart';
 import 'package:template_flutter_but/ui/screens/favorite/favorite_view_viewmodel.dart';
 
+import '../detail_view/detail_view_screen.dart';
+
 class FavoriteViewScreen extends ConsumerStatefulWidget {
   const FavoriteViewScreen({super.key});
 
@@ -33,47 +35,50 @@ class _FavoriteViewScreen extends ConsumerState<FavoriteViewScreen> {
                     ),
                     delegate: SliverChildBuilderDelegate(
                       (BuildContext context, int index) {
+                        var resultEntity = state.listrResultEntity![index];
                         return GestureDetector(
                           onTap: () {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //     builder: (context) => SearchGifPage(
-                            //       selectedCategory: categories[index].name,
-                            //     ),
-                            //   ),
-                            // );
+                            showModalBottomSheet(
+                              context: context,
+                              builder: (context) => Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  DetailViewScreen(resultEntity: resultEntity),
+                                ],
+                              ),
+                            );
                           },
                           child: Stack(
                             alignment: Alignment.center,
                             children: [
-                              // Image.network(
-                              //   categories[index].image,
-                              //   fit: BoxFit.cover,
-                              // ),
+                              Image.network(
+                                resultEntity.photo!.url!,
+                                fit: BoxFit.cover,
+                              ),
                               Container(
-                                color: Colors.cyan,
-                                child: Text("sssss"
-                                    // '${categories[index].name}',
-                                    // style: TextStyle(
-                                    //   color: Colors.white,
-                                    //   fontSize: 16.0,
-                                    //   fontWeight: FontWeight.bold,
-                                    //   shadows: [
-                                    //     Shadow(
-                                    //       offset: Offset(2.0, 2.0),
-                                    //       blurRadius: 4.0,
-                                    //       color: Colors.black.withOpacity(0.5),
-                                    //     ),
-                                    //   ],
-                                    // ),
+                                child: Center(
+                                  child: Text(
+                                    '${resultEntity.appellationCourante}',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.bold,
+                                      shadows: [
+                                        Shadow(
+                                          offset: Offset(2.0, 2.0),
+                                          blurRadius: 4.0,
+                                          color: Colors.black.withOpacity(0.5),
+                                        ),
+                                      ],
                                     ),
+                                  ),
+                                ),
                               ),
                             ],
                           ),
                         );
                       },
-                      childCount: state.resultsEntity!.length,
+                      childCount: state.listrResultEntity!.length,
                     ),
                   ),
                 ],

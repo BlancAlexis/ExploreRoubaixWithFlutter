@@ -20,7 +20,7 @@ class MapsViewModel extends ViewModelAbs<MapsViewModel, MapsState> {
 
   MapsViewModel({required PlaceEntitySingleton placeEntitySingleton})
       : placeEntitySingleton = placeEntitySingleton,
-        super( MapsState.initial()) {
+        super(MapsState.initial()) {
     _init();
   }
 
@@ -45,11 +45,14 @@ class MapsViewModel extends ViewModelAbs<MapsViewModel, MapsState> {
   }
 
   List<Marker>? updateMarkers(PlaceEntity places) {
-    final markers = places.details?.map((place) => Marker(
-      markerId: MarkerId(place.appellationCourante ?? ''),
-      position: LatLng(double.parse(place.lat ?? "0"), double.parse(place.long ?? "0")),
-      infoWindow: InfoWindow(title: place.adresseBanSig),
-    )).toList();
+    final markers = places.details
+        ?.map((place) => Marker(
+              markerId: MarkerId(place.appellationCourante ?? ''),
+              position: LatLng(double.parse(place.lat ?? "0"),
+                  double.parse(place.long ?? "0")),
+              infoWindow: InfoWindow(title: place.adresseBanSig),
+            ))
+        .toList();
     return markers;
   }
 }

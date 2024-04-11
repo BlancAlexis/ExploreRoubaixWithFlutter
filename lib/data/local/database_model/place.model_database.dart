@@ -3,7 +3,6 @@ import 'package:template_flutter_but/domain/entities/result_entity.dart';
 
 part 'place.model_database.g.dart';
 
-
 @HiveType(typeId: 3)
 class PlaceModelDatabase extends HiveObject {
   @HiveField(0)

@@ -7,17 +7,17 @@ part 'favorite_view_state.g.dart';
 
 @CopyWith()
 class FavoriteViewState extends ViewStateAbs {
-  List<ResultEntity>? resultsEntity = null;
+  List<ResultEntity>? listrResultEntity = null;
   bool loading = true;
 
-  FavoriteViewState({required this.resultsEntity, required this.loading});
+  FavoriteViewState({required this.listrResultEntity, required this.loading});
 
   FavoriteViewState.initial()
       : loading = true,
-        resultsEntity = null;
+        listrResultEntity = null;
 
   @override
   List<Object?> get props => <Object?>[
-        resultsEntity,
+        listrResultEntity,
       ];
 }

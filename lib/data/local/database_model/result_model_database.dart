@@ -7,7 +7,6 @@ import 'geo_point_2d_model_database.dart';
 
 part 'result_model_database.g.dart';
 
-
 @HiveType(typeId: 4)
 class ResultModelDatabase extends HiveObject {
   @HiveField(0)

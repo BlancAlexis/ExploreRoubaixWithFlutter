@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:template_flutter_but/data/network/models/format_enum.dart';
 import 'package:template_flutter_but/domain/entities/photo_entity.dart';
+
 part 'photo_model.g.dart';
 
 @JsonSerializable(explicitToJson: true, fieldRename: FieldRename.snake)
