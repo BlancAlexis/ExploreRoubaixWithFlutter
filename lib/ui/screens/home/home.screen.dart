@@ -33,7 +33,9 @@ class _HomeScreeenState extends ConsumerState<HomeScreen> {
                             showModalBottomSheet(
                               context: context,
                               builder: (context) =>
-                                  DetailViewScreen(resultEntity: place),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [DetailViewScreen(resultEntity: place),],),
                             );
                           },
                           child: SizedBox(
@@ -55,7 +57,7 @@ class _HomeScreeenState extends ConsumerState<HomeScreen> {
                                       Text("${place.appellationCourante}"),
                                     ],
                                   ))));
-                    }, childCount: state.listPlace!.details!.length),
+                    }, childCount: state.listPlace?.details?.length ?? 0),
                   ),
                 ],
               ));

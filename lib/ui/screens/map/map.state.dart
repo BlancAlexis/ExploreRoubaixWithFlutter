@@ -12,15 +12,31 @@ class MapsState extends ViewStateAbs {
   final PlaceEntity? listPlace;
   final List<Marker> markers;
 
-  const MapsState({required this.loading, required this.listPlace, required this.markers});
+  const MapsState({
+    required this.loading,
+    required this.listPlace,
+    required this.markers,
+  });
 
-  const MapsState.initial(this.markers)
+  MapsState.initial()
       : loading = false,
-        listPlace = null;
+        listPlace = null,
+        markers = const <Marker>[];
+
+  MapsState copyWith({
+    bool? loading,
+    PlaceEntity? listPlace,
+    List<Marker>? markers,
+  }) => MapsState(
+    loading: loading ?? this.loading,
+    listPlace: listPlace ?? this.listPlace,
+    markers: markers ?? this.markers,
+  );
 
   @override
   List<Object?> get props => <Object?>[
-        loading,
-        listPlace,
-      ];
+    loading,
+    listPlace,
+    markers
+  ];
 }

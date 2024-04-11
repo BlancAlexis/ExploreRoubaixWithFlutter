@@ -31,6 +31,7 @@ import 'package:template_flutter_but/domain/repository/places.repository.dart'
 import 'package:template_flutter_but/foundation/client/dio.client.dart' as _i3;
 import 'package:template_flutter_but/foundation/client/interceptors/header.interceptor.dart'
     as _i6;
+import 'package:template_flutter_but/ui/place_entity_singleton.dart' as _i14;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -57,6 +58,8 @@ extension GetItInjectableX on _i1.GetIt {
             placesEndpoint: gh<_i7.PlacesEndpoint>()));
     gh.singleton<_i12.PlacesRepository>(() => _i13.PlacesRepositoryImpl(
         placesRemoteDataSource: gh<_i10.PlacesRemoteDataSource>()));
+    gh.singleton<_i14.PlaceEntitySingleton>(
+        () => _i14.PlaceEntitySingleton(gh<_i12.PlacesRepository>()));
     return this;
   }
 }

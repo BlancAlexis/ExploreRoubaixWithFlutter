@@ -17,8 +17,8 @@ class MapSampleState extends ConsumerState<MapSample> {
       Completer<GoogleMapController>();
 
   static const CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
-    zoom: 14.4746,
+    target: LatLng(50.683636,3.165532),
+    zoom: 10.0,
   );
 
   static const CameraPosition _kLake = CameraPosition(

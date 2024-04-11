@@ -11,6 +11,8 @@ abstract class _$MapsStateCWProxy {
 
   MapsState listPlace(PlaceEntity? listPlace);
 
+  MapsState markers(List<Marker> markers);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `MapsState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -20,6 +22,7 @@ abstract class _$MapsStateCWProxy {
   MapsState call({
     bool? loading,
     PlaceEntity? listPlace,
+    List<Marker>? markers,
   });
 }
 
@@ -36,6 +39,9 @@ class _$MapsStateCWProxyImpl implements _$MapsStateCWProxy {
   MapsState listPlace(PlaceEntity? listPlace) => this(listPlace: listPlace);
 
   @override
+  MapsState markers(List<Marker> markers) => this(markers: markers);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `MapsState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -46,6 +52,7 @@ class _$MapsStateCWProxyImpl implements _$MapsStateCWProxy {
   MapsState call({
     Object? loading = const $CopyWithPlaceholder(),
     Object? listPlace = const $CopyWithPlaceholder(),
+    Object? markers = const $CopyWithPlaceholder(),
   }) {
     return MapsState(
       loading: loading == const $CopyWithPlaceholder() || loading == null
@@ -56,6 +63,10 @@ class _$MapsStateCWProxyImpl implements _$MapsStateCWProxy {
           ? _value.listPlace
           // ignore: cast_nullable_to_non_nullable
           : listPlace as PlaceEntity?,
+      markers: markers == const $CopyWithPlaceholder() || markers == null
+          ? _value.markers
+          // ignore: cast_nullable_to_non_nullable
+          : markers as List<Marker>,
     );
   }
 }

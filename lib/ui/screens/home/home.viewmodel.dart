@@ -31,5 +31,6 @@ class HomeViewModel extends ViewModelAbs<HomeViewModel, HomeState> {
       state = state.copyWith(listPlace: event);
     });
     updateLoading(false);
+
   }
 }

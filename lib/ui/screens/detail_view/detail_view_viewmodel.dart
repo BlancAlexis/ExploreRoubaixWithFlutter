@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:template_flutter_but/domain/repository/local.repository.dart';
 import 'package:template_flutter_but/ui/screens/detail_view/detail_view_state.dart';
@@ -21,7 +22,9 @@ class DetailViewViewModel
   final PlacesLocalRepository _placesRepository;
 
   init(ResultEntity resultEntity) {
-    state = state.copyWith(resultEntity: resultEntity);
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      state = state.copyWith(resultEntity: resultEntity);
+    });
   }
 
   Future<List<ResultEntity>> getFavoritePlaces() async {

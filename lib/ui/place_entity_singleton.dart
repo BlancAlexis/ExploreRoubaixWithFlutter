@@ -5,27 +5,25 @@ import '../application/injections/initializer.dart';
 import '../domain/entities/place.entity.dart';
 import '../domain/repository/places.repository.dart';
 
-@singleton
-final PlaceEntityProvider = Provider<PlaceEntitySingleton>(
-  (ref) => PlaceEntitySingleton(),
-  name: 'MySingleton',
-);
 
+@singleton
 class PlaceEntitySingleton {
   final PlacesRepository placesRepository;
   late final Stream<PlaceEntity> placesStream;
+  late PlaceEntity places;
 
-  PlaceEntitySingleton() : placesRepository = injector<PlacesRepository>() {
+  PlaceEntitySingleton(this.placesRepository){
     placesStream = fetchPlaces().asStream();
   }
 
   Future<PlaceEntity> fetchPlaces() async {
     try {
       final places = await placesRepository.getPlaces();
+      this.places = places;
       return places;
     } catch (error) {
       print('Error fetching places: $error');
-      throw error;
+      rethrow;
     }
   }
 

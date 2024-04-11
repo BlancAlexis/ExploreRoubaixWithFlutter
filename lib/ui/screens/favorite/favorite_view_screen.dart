@@ -16,7 +16,6 @@ class _FavoriteViewScreen extends ConsumerState<FavoriteViewScreen> {
   @override
   Widget build(BuildContext context) {
     FavoriteViewState state = ref.watch(favoriteProvider);
-    ref.read(favoriteProvider.notifier).init();
     return Scaffold(
         body: state.loading
             ? const Center(
@@ -84,6 +83,7 @@ class _FavoriteViewScreen extends ConsumerState<FavoriteViewScreen> {
   @override
   void initState() {
     super.initState();
+    ref.read(favoriteProvider.notifier).init();
   }
 
   @override

@@ -20,15 +20,10 @@ class _DetailViewModal extends ConsumerState<DetailViewScreen> {
   @override
   Widget build(BuildContext context) {
     DetailViewState state = ref.watch(detailProvider);
-    state.init(widget.resultEntity);
+
     return Scaffold(
       body: Center(
-        child: OutlinedButton(
-            onPressed: () async {
-              await ref.read(detailProvider.notifier).putFavPlaces(state.resultEntity!);
-              await ref.read(detailProvider.notifier).getFavoritePlaces();
-            },
-            child: Text("${state.resultEntity?.appellationCourante}")),
+            child: Text("MOI", style: TextStyle(fontSize: 20, color: Colors.blue)),
       ),
     );
   }
@@ -36,6 +31,7 @@ class _DetailViewModal extends ConsumerState<DetailViewScreen> {
   @override
   void initState() {
     super.initState();
+  ref.read(detailProvider.notifier).init(widget.resultEntity);
   }
 
   @override
