@@ -3,7 +3,7 @@ import 'package:template_flutter_but/data/data_source/places/remote/remote.data_
 import 'package:template_flutter_but/data/network/endpoints/place.endpoint.dart';
 import 'package:template_flutter_but/data/network/models/place.model.dart';
 
-@Singleton(as: PlacesRemoteDataSource)
+// TODO @Singleton(as: PlacesRemoteDataSource)
 class PlacesRemoteDataSourceImpl implements PlacesRemoteDataSource {
   final PlacesEndpoint _placesEndpoint;
 

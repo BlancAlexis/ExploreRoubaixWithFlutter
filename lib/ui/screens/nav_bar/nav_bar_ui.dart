@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
               decoration: BoxDecoration(
                 color: Colors.transparent,
               ),
-              child: Image(image: AssetImage('assets/roubaix.png')),
+              child: Image(image: AssetImage('assets/images/roubaix.png')),
             ),
             ListTile(
               title: const Text('Lieux favories'),

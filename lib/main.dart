@@ -9,6 +9,7 @@ import 'data/local/database_model/photo_model_database.dart';
 import 'data/local/database_model/result_model_database.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   initializeInjections();
   await Hive.initFlutter();
   Hive.registerAdapter(ResultModelDatabaseAdapter());

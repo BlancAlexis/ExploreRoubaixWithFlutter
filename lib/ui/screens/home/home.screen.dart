@@ -31,6 +31,7 @@ class _HomeScreeenState extends ConsumerState<HomeScreen> {
                       return GestureDetector(
                           onTap: () {
                             showModalBottomSheet(
+                              isScrollControlled: true,
                               context: context,
                               builder: (context) => Column(
                                 mainAxisSize: MainAxisSize.min,

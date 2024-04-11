@@ -21,9 +21,60 @@ class _DetailViewModal extends ConsumerState<DetailViewScreen> {
   Widget build(BuildContext context) {
     DetailViewState state = ref.watch(detailProvider);
 
-    return Scaffold(
-      body: Center(
-        child: Text("MOI", style: TextStyle(fontSize: 20, color: Colors.blue)),
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+              child: Text(state.resultEntity?.appellationCourante ?? '',
+                style: const TextStyle(fontSize: 28),
+                textAlign: TextAlign.center,
+                maxLines: 1,),
+            ),
+            if (state.resultEntity?.photo != null)
+              SizedBox(
+                  width: double.infinity,
+                  height: 200,
+                  child: Image.network(state.resultEntity!.photo!.url!,
+                      fit: BoxFit.cover)),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+              child: Text(state.resultEntity?.historique ?? '',
+                  style: const TextStyle(fontSize: 12),
+                  textAlign: TextAlign.justify),
+            ),
+            Text('Latitude: ${state.resultEntity?.lat?.substring(0,6)  ?? ''} Longitude: ${state.resultEntity?.long?.substring(0,6)  ?? ''}',
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.left),
+      Text('années : ${state.resultEntity?.historique ?? ''}',
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.left),
+      // Text(data)
+      // Text(data)
+            Container(
+              alignment: Alignment.centerRight,
+              child: RawMaterialButton(
+                onPressed: () async {
+                  await ref
+                      .read(detailProvider.notifier)
+                      .putFavPlaces(state.resultEntity!);
+                },
+                elevation: 15.0,
+                fillColor: Colors.white,
+                child: Icon(
+                  color: Colors.red, // A mettre dans state status
+                  Icons.favorite,
+                  size: 35.0,
+                ),
+                padding: EdgeInsets.all(15.0),
+                shape: CircleBorder(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

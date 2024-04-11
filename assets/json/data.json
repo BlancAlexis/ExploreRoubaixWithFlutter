@@ -1,0 +1,164 @@
+{
+    "total_count": 43,
+    "results": [
+        {
+            "monum_his_com_id": 6,
+            "appellation_courante": "Eglise Saint-Joseph",
+            "photo": {
+                "exif_orientation": 1,
+                "thumbnail": true,
+                "filename": "6.jpg",
+                "format": "JPEG",
+                "width": 764,
+                "id": "18e2999891374a475d0687ca9f989d83",
+                "height": 1181,
+                "color_summary": [
+                    "rgba(142, 102, 57, 1.00)",
+                    "rgba(138, 112, 75, 1.00)",
+                    "rgba(104, 93, 79, 1.00)"
+                ],
+                "url": "https://data.opendatasoft.com/api/explore/v2.1/catalog/datasets/liste-monuments-historiques-de-roubaix@ville-de-roubaix/files/18e2999891374a475d0687ca9f989d83"
+            },
+            "copyright_et_propriete": "S Levaillant \u2013 Ville de Roubaix",
+            "epoque": "1878",
+            "siecle": [
+                "4e quart 19e si\u00e8cle"
+            ],
+            "precision_sur_la_protection": "L'\u00e9glise et son d\u00e9cor int\u00e9rieur (cad. MZ 366) : classement par arr\u00eat\u00e9 du 4 juin 1993",
+            "date_de_protection": "1993-04-06",
+            "classement": "classement MH",
+            "statut": "propri\u00e9t\u00e9 d'une association",
+            "description": "D\u00e9cor n\u00e9o-gothique",
+            "historique": "Cette \u00e9glise a \u00e9t\u00e9 \u00e9difi\u00e9e en 1878 par l'architecte belge Jean-Baptiste, baron B\u00e9thune d'Ydewalle, pour le compte du patronat, dans l'intention de cat\u00e9chiser les ouvriers.",
+            "auteur": "B\u00e9thune d'Ydewalle Jean-Baptiste;(architecte)",
+            "region": "Hauts-de-France",
+            "departement": "Nord",
+            "commune": "Roubaix",
+            "niveau_de_protection": "class\u00e9 MH partiellement;protection totale",
+            "code_departement": 59,
+            "insee": 59512,
+            "adresse_ban_sig": "125 RUE DE FRANCE",
+            "geo_point_2d": {
+                "lon": 3.1673443003115582,
+                "lat": 50.702765556705394
+            },
+            "lat": "50.702765556705394",
+            "long": "3.1673443003115582"
+        },
+        {
+            "monum_his_com_id": 8,
+            "appellation_courante": "H\u00f4tel de ville",
+            "photo": {
+                "exif_orientation": 1,
+                "thumbnail": true,
+                "filename": "8.jpg",
+                "format": "JPEG",
+                "width": 3184,
+                "id": "8cda81fc7ad906927144235dda5fdf15",
+                "height": 2120,
+                "color_summary": [
+                    "rgba(160, 161, 158, 1.00)",
+                    "rgba(134, 122, 115, 1.00)",
+                    "rgba(97, 73, 70, 1.00)"
+                ],
+                "url": "https://data.opendatasoft.com/api/explore/v2.1/catalog/datasets/liste-monuments-historiques-de-roubaix@ville-de-roubaix/files/8cda81fc7ad906927144235dda5fdf15"
+            },
+            "copyright_et_propriete": "Arnaud Loubry \u2013 Ville de Roubaix",
+            "epoque": "1907",
+            "siecle": [
+                "1er quart 20e si\u00e8cle"
+            ],
+            "precision_sur_la_protection": "Les fa\u00e7ades ext\u00e9rieures et les toitures sur la Grand-Place, la rue du Mar\u00e9chal-Foch, la rue de l'H\u00f4tel-de-Ville et la rue du Ch\u00e2teau (y compris celles de la chambre de commerce et du b\u00e2timent des services municipaux) , l'escalier d'honneur et sa verri\u00e8re sommitale, la salle Pierre de Roubaix au rez-de-chauss\u00e9e, le salon d'honneur au premier \u00e9tage, la salle des mariages au premier \u00e9tage, la salle des conf\u00e9rences au premier \u00e9tage, la salle du conseil au premier \u00e9tage, la salle des commissions au premier \u00e9tage (cad. BS 53) : inscription par arr\u00eat\u00e9 du 12 ao\u00fbt 1998",
+            "date_de_protection": "1998-12-08",
+            "classement": "inscrit MH",
+            "statut": "propri\u00e9t\u00e9 de la commune",
+            "description": null,
+            "historique": "Oeuvre de l'architecte Victor Laloux, \u00e0 qui l'on doit \u00e9galement la gare d'Orsay \u00e0 Paris, cet \u00e9difice date de 1907-1911. Sa construction a r\u00e9uni de nombreux artistes sculpteurs qui ont fait de l'h\u00f4tel de ville un symbole de la prosp\u00e9rit\u00e9 roubaisienne. Sa fa\u00e7ade principale, et surtout les bas-reliefs de la frise illustrant le travail de la laine, sont un livre ouvert au caract\u00e8re monumental tr\u00e8s affirm\u00e9 \u00e0 chaque roubaisien, rappelant la prosp\u00e9rit\u00e9 de la capitale mondiale de la laine. A l'int\u00e9rieur, l'escalier monumental et les salons au d\u00e9cor foisonnant (le salon d'honneur, la salle des mariages, la salle du conseil, etc.) , sont \u00e9galement l'illustration de cette richesse.",
+            "auteur": "Laloux Victor (architecte);Weerts Jean-Joseph (peintre);Schommer Fran\u00e7ois (peintre);Cogghe R\u00e9my (peintre);Laoust Andr\u00e9 (sculpteur);Lefebvre Hippolyte-Jules (sculpteur);Boutry Edgard (sculpteur);Cordonnier Alphonse-Am\u00e9d\u00e9e (sculpteur);Fagel L\u00e9on (sculpteur)",
+            "region": "Hauts-de-France",
+            "departement": "Nord",
+            "commune": "Roubaix",
+            "niveau_de_protection": "inscrit MH partiellement",
+            "code_departement": 59,
+            "insee": 59512,
+            "adresse_ban_sig": "17 GRAND PLACE",
+            "geo_point_2d": {
+                "lon": 3.1740227164238406,
+                "lat": 50.69121426041393
+            },
+            "lat": "50.69121426041393",
+            "long": "3.1740227164238406"
+        },
+        {
+            "monum_his_com_id": 14,
+            "appellation_courante": "Maison",
+            "photo": {
+                "exif_orientation": 1,
+                "thumbnail": true,
+                "filename": "14.jpg",
+                "format": "JPEG",
+                "width": 1887,
+                "id": "edab7ba7e203cd7576d1200465194ea8",
+                "height": 2835,
+                "color_summary": [
+                    "rgba(103, 113, 129, 1.00)",
+                    "rgba(126, 131, 116, 1.00)",
+                    "rgba(113, 114, 98, 1.00)"
+                ],
+                "url": "https://data.opendatasoft.com/api/explore/v2.1/catalog/datasets/liste-monuments-historiques-de-roubaix@ville-de-roubaix/files/edab7ba7e203cd7576d1200465194ea8"
+            },
+            "copyright_et_propriete": "Fran\u00e7ois Vergin \u2013 Ville de Roubaix",
+            "epoque": "1893",
+            "siecle": [
+                "4e quart 19e si\u00e8cle"
+            ],
+            "precision_sur_la_protection": "Fa\u00e7ade et toiture sur rue (cad. LS 105) : inscription par arr\u00eat\u00e9 du 12 ao\u00fbt 1998",
+            "date_de_protection": "1998-12-08",
+            "classement": "inscrit MH",
+            "statut": "propri\u00e9t\u00e9 priv\u00e9e",
+            "description": null,
+            "historique": "Construite en 1893 par l'architecte belge Auguste-Georges Dubois pour son p\u00e8re, contemporaine de l'architecture Art Nouveau d'Horta \u00e0 Bruxelles, cette maison fait appel \u00e0 un registre d\u00e9coratif int\u00e9ressant et in\u00e9dit. La fa\u00e7ade principale, compos\u00e9e d'une \u00e9l\u00e9vation \u00e0 trois niveaux est recouverte d'un parement de briques vertes \u00e9maill\u00e9es. Les fen\u00eatres situ\u00e9es au premier \u00e9tage sont surmont\u00e9es d'une frise, orn\u00e9e de trois cartouches, portant la date de construction de la b\u00e2tisse, alternant avec des figures de femmes engain\u00e9es en terre cuite. A l'int\u00e9rieur, le salon sur rue renferme un plafond \u00e0 caissons.",
+            "auteur": "Dubois Auguste-Georges (architecte)",
+            "region": "Hauts-de-France",
+            "departement": "Nord",
+            "commune": "Roubaix",
+            "niveau_de_protection": "inscrit MH partiellement",
+            "code_departement": 59,
+            "insee": 59512,
+            "adresse_ban_sig": "28 RUE DU MARECHAL FOCH",
+            "geo_point_2d": null,
+            "lat": null,
+            "long": null
+        },
+        {
+            "monum_his_com_id": 16,
+            "appellation_courante": "Maison",
+            "photo": null,
+            "copyright_et_propriete": null,
+            "epoque": "fin 19e si\u00e8cle",
+            "siecle": [
+                "4e quart 19e si\u00e8cle"
+            ],
+            "precision_sur_la_protection": "Fa\u00e7ade et toiture sur rue (cad. BC 177) : inscription par arr\u00eat\u00e9 du 12 ao\u00fbt 1998",
+            "date_de_protection": "1998-12-08",
+            "classement": "inscrit MH",
+            "statut": "propri\u00e9t\u00e9 priv\u00e9e",
+            "description": null,
+            "historique": "Cette maison de 1893 est un cas atypique d'architecture m\u00e9tallique \u00e0 ossature apparente pour un usage priv\u00e9 d'habitation. R\u00e9alis\u00e9e par un marchand de fer, elle lui servait de vitrine et de publicit\u00e9. Seule la fa\u00e7ade principale a gard\u00e9 des dispositions originales, essentiellement caract\u00e9ris\u00e9es par l'utilisation de la fonte moul\u00e9e apparente, de la terre cuite et de la brique en remplissage et en d\u00e9coration.",
+            "auteur": null,
+            "region": "Hauts-de-France",
+            "departement": "Nord",
+            "commune": "Roubaix",
+            "niveau_de_protection": "inscrit MH partiellement",
+            "code_departement": 59,
+            "insee": 59512,
+            "adresse_ban_sig": "9 RUE PARMENTIER",
+            "geo_point_2d": {
+                "lon": 3.184475950321493,
+                "lat": 50.69695503057813
+            },
+            "lat": "50.69695503057813",
+            "long": "3.184475950321493"
+        }
+    ]
+}
