@@ -32,15 +32,15 @@ class _HomeScreeenState extends ConsumerState<HomeScreen> {
                           onTap: () {
                             showModalBottomSheet(
                               context: context,
-                              builder: (context) =>
-                                  Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [DetailViewScreen(resultEntity: place),],),
+                              builder: (context) => Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  DetailViewScreen(resultEntity: place),
+                                ],
+                              ),
                             );
                           },
-                          child: SizedBox(
-                              height: 30,
-                              width: 10,
+                          child: Container(
                               child: Card(
                                   shape: RoundedRectangleBorder(
                                     side: const BorderSide(
@@ -50,16 +50,97 @@ class _HomeScreeenState extends ConsumerState<HomeScreen> {
                                   ),
                                   color: Colors.blue,
                                   elevation: 8,
-                                  child: Row(
-                                    children: [
-                                      if (place.photo != null)
-                                        Image.network(place.photo!.url!),
-                                      Text("${place.appellationCourante}"),
-                                    ],
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Colors.yellow,
+                                          Colors.orangeAccent,
+                                          Colors.yellow.shade300,
+                                        ],
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                      ),
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Column(children: [
+                                              if (place.photo != null)
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(5),
+                                                  child: SizedBox(
+                                                      width: 100,
+                                                      height: 85,
+                                                      child: Image.network(
+                                                        place.photo!.url!,
+                                                        fit: BoxFit.cover,
+                                                      )),
+                                                ),
+                                            ]),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Row(
+                                                  mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                  children: [
+                                                    Center(
+                                                        child: Text(
+                                                            "${place.appellationCourante}")),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                  children: [
+                                                    Center(
+                                                        child: Text(
+                                                            "${place.adresseBanSig} ${place.epoque}", overflow: TextOverflow.ellipsis)),
+                                                  ],
+                                                )
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Text("${place.auteur}",
+                                                style: const TextStyle(
+                                                    fontSize: 10)
+                                                , overflow: TextOverflow.clip)
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   ))));
                     }, childCount: state.listPlace?.details?.length ?? 0),
                   ),
                 ],
               ));
   }
+
+// LinearGradient getGradient(List<String> colors) {
+//   return LinearGradient(
+//     colors: colors.map((colorStr) => rgbaToColor(colorStr)).toList(),
+//     begin: Alignment.topLeft,
+//     end: Alignment.bottomRight,
+//   );
+// }
+//
+// Color rgbaToColor(String rgba) {
+//   final List<int> colorComponents = rgba
+//       .substring(5, rgba.length - 1)
+//       .split(',')
+//       .map((str) => int.parse(str.trim()))
+//       .toList();
+//   return Color.fromRGBO(
+//       colorComponents[0], colorComponents[1], colorComponents[2],255);
+// }
+
 }
