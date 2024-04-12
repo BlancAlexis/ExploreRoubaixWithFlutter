@@ -4,6 +4,7 @@ import '../../data/local/database_model/result_model_database.dart';
 import 'geo_point_2d_entity.dart';
 
 class ResultEntity {
+  final bool isFav = false;
   final int? monumHisComId;
 
   final String? appellationCourante;

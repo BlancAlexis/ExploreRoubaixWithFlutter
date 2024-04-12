@@ -1,5 +1,6 @@
 import 'package:injectable/injectable.dart';
 import 'package:template_flutter_but/data/Result.dart';
+import 'package:template_flutter_but/data/local/database_model/result_model_database.dart';
 import 'package:template_flutter_but/domain/entities/result_entity.dart';
 
 import '../../../domain/repository/local.repository.dart';
@@ -27,6 +28,12 @@ class LocalRepositoryImpl implements PlacesLocalRepository {
 
   @override
   Future<Result<void>> putFavoritePlaces(ResultEntity resultEntity) {
-    return localDataSource.putFavoritePlaces(resultEntity.toEntityDataBase);
+    ResultModelDatabase resultEntityDataBase = resultEntity.toEntityDataBase;
+    resultEntityDataBase.isFav = true;
+    return localDataSource.putFavoritePlaces(resultEntityDataBase);
+  }
+  @override
+  Future<Result<void>> removeFavoritePlaces(ResultEntity resultEntity) {
+    return localDataSource.removeFavoritePlaces(resultEntity.toEntityDataBase);
   }
 }

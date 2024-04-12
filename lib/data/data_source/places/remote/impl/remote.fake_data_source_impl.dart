@@ -7,7 +7,7 @@ import 'package:template_flutter_but/data/data_source/places/remote/remote.data_
 import '../../../../network/endpoints/place.endpoint.dart';
 import '../../../../network/models/place.model.dart';
 
-@Singleton(as: PlacesRemoteDataSource)
+// TODO @Singleton(as: PlacesRemoteDataSource)
 class FakePlacesRemoteDataSourceImpl implements PlacesRemoteDataSource {
 
   FakePlacesRemoteDataSourceImpl();

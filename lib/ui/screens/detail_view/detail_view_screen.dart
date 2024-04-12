@@ -29,10 +29,12 @@ class _DetailViewModal extends ConsumerState<DetailViewScreen> {
           children: [
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-              child: Text(state.resultEntity?.appellationCourante ?? '',
-                style: const TextStyle(fontSize: 28),
+              child: Text(
+                state.resultEntity?.appellationCourante ?? '',
+                style: const TextStyle(fontSize: 20),
                 textAlign: TextAlign.center,
-                maxLines: 1,),
+                maxLines: 1,
+              ),
             ),
             if (state.resultEntity?.photo != null)
               SizedBox(
@@ -46,14 +48,26 @@ class _DetailViewModal extends ConsumerState<DetailViewScreen> {
                   style: const TextStyle(fontSize: 12),
                   textAlign: TextAlign.justify),
             ),
-            Text('Latitude: ${state.resultEntity?.lat?.substring(0,6)  ?? ''} Longitude: ${state.resultEntity?.long?.substring(0,6)  ?? ''}',
-                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            Text(
+                'Latitude: ${state.resultEntity?.lat?.substring(0, 6) ?? ''} Longitude: ${state.resultEntity?.long?.substring(0, 6) ?? ''}',
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.left),
-      Text('années : ${state.resultEntity?.historique ?? ''}',
-                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.left),
-      // Text(data)
-      // Text(data)
+            Text(
+              'années : ${state.resultEntity?.epoque ?? ''}',
+            ),
+            const Center(
+                child: Column(
+              children: <Widget>[
+                Text('Détails sur la protection du monument',
+                    style: TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.left),
+              ],
+            )),
+
+            // Text(data)
+            // Text(data)
             Container(
               alignment: Alignment.centerRight,
               child: RawMaterialButton(
@@ -65,7 +79,7 @@ class _DetailViewModal extends ConsumerState<DetailViewScreen> {
                 elevation: 15.0,
                 fillColor: Colors.white,
                 child: Icon(
-                  color: Colors.red, // A mettre dans state status
+                  color: _getColor(state),// A mettre dans state status
                   Icons.favorite,
                   size: 35.0,
                 ),
@@ -78,6 +92,18 @@ class _DetailViewModal extends ConsumerState<DetailViewScreen> {
       ),
     );
   }
+
+  Color _getColor(DetailViewState state) {
+    if (state.resultEntity?.isFav == true) {
+      return
+         Colors.red;
+
+    } else {
+      return
+        Colors.grey;
+    }
+  }
+
 
   @override
   void initState() {

@@ -78,6 +78,9 @@ class ResultModelDatabase extends HiveObject {
   @HiveField(22)
   final String? long;
 
+  @HiveField(23)
+  bool isFav = false;
+
   ResultModelDatabase(
       {required this.monumHisComId,
       required this.appellationCourante,

@@ -50,6 +50,18 @@ class DetailViewViewModel
     }
   }
 
+  Future<void> removeFavPlaces(ResultEntity resultEntity) async {
+    Result<void> result =
+        await _placesRepository.removeFavoritePlaces(resultEntity);
+    if (result is Success) {
+      print('Success');
+      return;
+    } else {
+      print("Error");
+      return;
+    }
+  }
+
   DetailViewViewModel({required PlacesLocalRepository placesRepository})
       : _placesRepository = placesRepository,
         super(DetailViewState.initial());
