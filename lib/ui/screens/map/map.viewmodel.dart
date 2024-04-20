@@ -1,11 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_it/get_it.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:template_flutter_but/application/injections/initializer.dart';
 import 'package:template_flutter_but/ui/abstraction/view_model_abs.dart';
 import 'package:template_flutter_but/ui/place_entity_singleton.dart';
-import 'package:template_flutter_but/ui/screens/detail_view/detail_view_screen.dart';
 
 import '../../../domain/entities/place.entity.dart';
 import 'map.state.dart';
@@ -50,10 +47,10 @@ class MapsViewModel extends ViewModelAbs<MapsViewModel, MapsState> {
   List<Marker>? updateMarkers(PlaceEntity places) {
     final markers = places.details
         ?.map((place) => Marker(
-              markerId: MarkerId(place.monumHisComId.toString()),
-              position: LatLng(double.parse(place.lat ?? "0"),
-                  double.parse(place.long ?? "0")),
-              infoWindow: InfoWindow(title: place.appellationCourante)))
+            markerId: MarkerId(place.monumHisComId.toString()),
+            position: LatLng(double.parse(place.lat ?? "0"),
+                double.parse(place.long ?? "0")),
+            infoWindow: InfoWindow(title: place.appellationCourante)))
         .toList();
     return markers;
   }

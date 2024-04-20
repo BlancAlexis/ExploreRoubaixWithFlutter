@@ -19,7 +19,7 @@ class MapSample extends ConsumerStatefulWidget {
 class MapSampleState extends ConsumerState<MapSample> {
   final double startZoom = 13.0;
   final Completer<GoogleMapController> _controller =
-  Completer<GoogleMapController>();
+      Completer<GoogleMapController>();
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +27,11 @@ class MapSampleState extends ConsumerState<MapSample> {
     return Scaffold(
       body: GoogleMap(
         mapType: MapType.hybrid,
-        markers: state.markers.mapIndexed((index, marker) => newMarkers(marker, state, index)).toSet(),
-        initialCameraPosition: CameraPosition(target: state.roubaixLatLng, zoom: startZoom),
+        markers: state.markers
+            .mapIndexed((index, marker) => newMarkers(marker, state, index))
+            .toSet(),
+        initialCameraPosition:
+            CameraPosition(target: state.roubaixLatLng, zoom: startZoom),
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
         },
@@ -36,26 +39,23 @@ class MapSampleState extends ConsumerState<MapSample> {
     );
   }
 
-
   Marker newMarkers(Marker e, MapsState state, int index) {
     return Marker(
         markerId: e.markerId,
         position: e.position,
         infoWindow: e.infoWindow,
-        onTap: () =>
-        {
-          showModalBottomSheet(
-            isScrollControlled: true,
-            context: context,
-            builder: (context) =>
-                Column(
+        onTap: () => {
+              showModalBottomSheet(
+                isScrollControlled: true,
+                context: context,
+                builder: (context) => Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     DetailViewScreen(
                         resultEntity: state.listPlace!.details![index]),
                   ],
                 ),
-          )
-        });
+              )
+            });
   }
 }

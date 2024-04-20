@@ -5,5 +5,6 @@ abstract class PlacesLocalRepository {
   Future<Result<List<ResultEntity>>> getFavoritePlaces();
 
   Future<Result<void>> putFavoritePlaces(ResultEntity resultEntity);
+
   Future<Result<void>> removeFavoritePlaces(ResultEntity resultEntity);
 }

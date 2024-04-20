@@ -60,8 +60,7 @@ class _DetailViewModal extends ConsumerState<DetailViewScreen> {
                 child: Column(
               children: <Widget>[
                 Text('Détails sur la protection du monument',
-                    style: TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     textAlign: TextAlign.left),
               ],
             )),
@@ -95,15 +94,11 @@ class _DetailViewModal extends ConsumerState<DetailViewScreen> {
 
   Color _getColor(bool isFav) {
     if (isFav == true) {
-      return
-         Colors.red;
-
+      return Colors.red;
     } else {
-      return
-        Colors.grey;
+      return Colors.grey;
     }
   }
-
 
   @override
   void initState() {

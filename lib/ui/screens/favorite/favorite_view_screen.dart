@@ -50,7 +50,7 @@ class _FavoriteViewScreen extends ConsumerState<FavoriteViewScreen> {
                             );
                           },
                           child: Card(
-                            shape:  RoundedRectangleBorder(
+                            shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                             child: Stack(
