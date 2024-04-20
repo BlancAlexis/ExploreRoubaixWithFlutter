@@ -39,6 +39,7 @@ class _FavoriteViewScreen extends ConsumerState<FavoriteViewScreen> {
                         return GestureDetector(
                           onTap: () {
                             showModalBottomSheet(
+                              isScrollControlled: true,
                               context: context,
                               builder: (context) => Column(
                                 mainAxisSize: MainAxisSize.min,
@@ -48,15 +49,18 @@ class _FavoriteViewScreen extends ConsumerState<FavoriteViewScreen> {
                               ),
                             );
                           },
-                          child: Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              Image.network(
-                                resultEntity.photo!.url!,
-                                fit: BoxFit.cover,
-                              ),
-                              Container(
-                                child: Center(
+                          child: Card(
+                            shape:  RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Image.network(
+                                  resultEntity.photo!.url!,
+                                  fit: BoxFit.cover,
+                                ),
+                                Center(
                                   child: Text(
                                     '${resultEntity.appellationCourante}',
                                     style: TextStyle(
@@ -73,8 +77,8 @@ class _FavoriteViewScreen extends ConsumerState<FavoriteViewScreen> {
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         );
                       },

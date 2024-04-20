@@ -21,6 +21,9 @@ class HomeViewModel extends ViewModelAbs<HomeViewModel, HomeState> {
     _init();
   }
 
+  void loadMore(){
+      placeEntitySingleton.
+  }
   void updateLoading(bool value) {
     state = state.copyWith(loading: value);
   }

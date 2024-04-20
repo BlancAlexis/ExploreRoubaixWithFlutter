@@ -74,7 +74,10 @@ class ResultEntity {
       required this.adresseBanSig,
       required this.geoPoint2D,
       required this.lat,
-      required this.long});
+      required this.long,
+      bool isFav = false});
+
+  // Forcément ça marche pas puisque y'a pas de champs isFav
 
   ResultModelDatabase get toEntityDataBase => ResultModelDatabase(
         monumHisComId: monumHisComId,

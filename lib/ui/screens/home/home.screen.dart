@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:template_flutter_but/ui/screens/detail_view/detail_view_screen.dart';
 import 'package:template_flutter_but/ui/screens/home/home.state.dart';
+import 'package:template_flutter_but/ui/screens/home/paginate_scroll_listener.dart';
 
 import 'home.viewmodel.dart';
 
@@ -13,6 +14,23 @@ class HomeScreen extends ConsumerStatefulWidget {
 }
 
 class _HomeScreeenState extends ConsumerState<HomeScreen> {
+  PaginationScrollController paginationScrollController =
+  PaginationScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    paginationScrollController.init(
+        loadAction: () async => { ref.read(homeProvider.notifier).loadMore()});
+  }
+
+
+  @override
+  void dispose() {
+    paginationScrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final HomeState state = ref.watch(homeProvider);
@@ -23,6 +41,7 @@ class _HomeScreeenState extends ConsumerState<HomeScreen> {
                 child: CircularProgressIndicator(),
               )
             : CustomScrollView(
+          controller: paginationScrollController.scrollController,
                 slivers: <Widget>[
                   const SliverAppBar(title: Center(child: Text('Home Screen'))),
                   SliverList(

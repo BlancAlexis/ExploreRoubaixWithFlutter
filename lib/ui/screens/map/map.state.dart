@@ -8,6 +8,8 @@ part 'map.state.g.dart';
 
 @CopyWith()
 class MapsState extends ViewStateAbs {
+  final LatLng roubaixLatLng = const LatLng(50.69421, 3.17456);
+
   final bool loading;
   final PlaceEntity? listPlace;
   final List<Marker> markers;

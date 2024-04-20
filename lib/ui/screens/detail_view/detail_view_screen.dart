@@ -79,7 +79,7 @@ class _DetailViewModal extends ConsumerState<DetailViewScreen> {
                 elevation: 15.0,
                 fillColor: Colors.white,
                 child: Icon(
-                  color: _getColor(state),// A mettre dans state status
+                  color: _getColor(state.resultEntity!.isFav),
                   Icons.favorite,
                   size: 35.0,
                 ),
@@ -93,8 +93,8 @@ class _DetailViewModal extends ConsumerState<DetailViewScreen> {
     );
   }
 
-  Color _getColor(DetailViewState state) {
-    if (state.resultEntity?.isFav == true) {
+  Color _getColor(bool isFav) {
+    if (isFav == true) {
       return
          Colors.red;
 

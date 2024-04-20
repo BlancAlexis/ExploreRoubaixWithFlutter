@@ -79,32 +79,34 @@ class ResultModelDatabase extends HiveObject {
   final String? long;
 
   @HiveField(23)
-  bool isFav = false;
+  bool isFav;
 
-  ResultModelDatabase(
-      {required this.monumHisComId,
-      required this.appellationCourante,
-      required this.photo,
-      required this.copyrightEtPropriete,
-      required this.epoque,
-      required this.siecle,
-      required this.precisionSurLaProtection,
-      required this.dateDeProtection,
-      required this.classement,
-      required this.statut,
-      required this.description,
-      required this.historique,
-      required this.auteur,
-      required this.region,
-      required this.departement,
-      required this.commune,
-      required this.niveauDeProtection,
-      required this.codeDepartement,
-      required this.insee,
-      required this.adresseBanSig,
-      required this.geoPoint2D,
-      required this.lat,
-      required this.long});
+  ResultModelDatabase({required this.monumHisComId,
+    required this.appellationCourante,
+    required this.photo,
+    required this.copyrightEtPropriete,
+    required this.epoque,
+    required this.siecle,
+    required this.precisionSurLaProtection,
+    required this.dateDeProtection,
+    required this.classement,
+    required this.statut,
+    required this.description,
+    required this.historique,
+    required this.auteur,
+    required this.region,
+    required this.departement,
+    required this.commune,
+    required this.niveauDeProtection,
+    required this.codeDepartement,
+    required this.insee,
+    required this.adresseBanSig,
+    required this.geoPoint2D,
+    required this.lat,
+    required this.long,
+    this.isFav = false
+  });
+
 
   ResultEntity get toEntity => ResultEntity(
         monumHisComId: monumHisComId,
@@ -130,6 +132,7 @@ class ResultModelDatabase extends HiveObject {
         geoPoint2D: geoPoint2D?.toEntity,
         lat: lat,
         long: long,
+      isFav : true
       );
 
   @override

@@ -40,13 +40,14 @@ class ResultModelDatabaseAdapter extends TypeAdapter<ResultModelDatabase> {
       geoPoint2D: fields[20] as GeoPoint2DModelDatabase?,
       lat: fields[21] as String?,
       long: fields[22] as String?,
+      isFav: fields[23] as dynamic,
     );
   }
 
   @override
   void write(BinaryWriter writer, ResultModelDatabase obj) {
     writer
-      ..writeByte(23)
+      ..writeByte(24)
       ..writeByte(0)
       ..write(obj.monumHisComId)
       ..writeByte(1)
@@ -92,7 +93,9 @@ class ResultModelDatabaseAdapter extends TypeAdapter<ResultModelDatabase> {
       ..writeByte(21)
       ..write(obj.lat)
       ..writeByte(22)
-      ..write(obj.long);
+      ..write(obj.long)
+      ..writeByte(23)
+      ..write(obj.isFav);
   }
 
   @override
