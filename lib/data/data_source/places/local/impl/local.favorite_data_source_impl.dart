@@ -36,14 +36,14 @@ class LocalFavoriteDataSourceImpl implements LocalFavoriteDataSource {
   }
 
   @override
-  Future<Result<void>> removeFavoritePlaces(ResultModelDatabase resultEntity) async {
+  Future<Result<void>> removeFavoritePlaces(
+      ResultModelDatabase resultEntity) async {
     try {
-    Box box = await Hive.openBox(nameBox);
-    await box.delete(resultEntity.monumHisComId);
-    return Success(data: null);
+      Box box = await Hive.openBox(nameBox);
+      await box.delete(resultEntity.monumHisComId);
+      return Success(data: null);
     } on Exception catch (exception) {
-    return Error(exception: exception);
+      return Error(exception: exception);
     }
   }
-
 }

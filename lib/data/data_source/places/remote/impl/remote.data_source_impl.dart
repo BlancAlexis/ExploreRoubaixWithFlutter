@@ -6,12 +6,14 @@ import 'package:template_flutter_but/data/network/models/place.model.dart';
 @Singleton(as: PlacesRemoteDataSource)
 class PlacesRemoteDataSourceImpl implements PlacesRemoteDataSource {
   final PlacesEndpoint _placesEndpoint;
+  final LIMIT = 10;
 
   PlacesRemoteDataSourceImpl({required PlacesEndpoint placesEndpoint})
       : _placesEndpoint = placesEndpoint;
 
   @override
   Future<PlaceModel> getPlaces() {
+    print('on fetch');
     return _placesEndpoint.getPlaces();
   }
 }

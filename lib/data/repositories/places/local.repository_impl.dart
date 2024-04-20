@@ -32,6 +32,7 @@ class LocalRepositoryImpl implements PlacesLocalRepository {
     resultEntityDataBase.isFav = true;
     return localDataSource.putFavoritePlaces(resultEntityDataBase);
   }
+
   @override
   Future<Result<void>> removeFavoritePlaces(ResultEntity resultEntity) {
     return localDataSource.removeFavoritePlaces(resultEntity.toEntityDataBase);
