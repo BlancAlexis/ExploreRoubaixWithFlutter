@@ -1,4 +1,5 @@
 import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:google_maps_cluster_manager/google_maps_cluster_manager.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:template_flutter_but/ui/abstraction/view_state_abs.dart';
 
@@ -13,7 +14,25 @@ class MapsState extends ViewStateAbs {
   final bool loading;
   final PlaceEntity? listPlace;
   final List<Marker> markers;
+  final _clusterManager = ClusterManager<Marker>(
+    [], // Replace with your initial markers (empty list for now)
+    _markerClusterBuilder,
+  );
 
+  Marker _markerClusterBuilder(int clusterSize) {
+    return Marker(
+      markerId: MarkerId('cluster-$clusterSize'),
+      position: LatLng(0, 0), // Placeholder position, replaced later
+      icon: Icon(
+        Icons.pin,
+        color: Colors.blue,
+        size: clusterSize == 1 ? 30 : clusterSize * 10,
+      ),
+      infoWindow: InfoWindow(
+        title: Text('Cluster: $clusterSize'),
+      ),
+    );
+  }
   const MapsState({
     required this.loading,
     required this.listPlace,
