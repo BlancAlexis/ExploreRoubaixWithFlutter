@@ -1,9 +1,9 @@
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:template_flutter_but/data/local/database_model/photo_model_database.dart';
 
 import '../../../domain/entities/result_entity.dart';
-import 'geo_point_2d_model_database.dart';
 
 part 'result_model_database.g.dart';
 
@@ -70,13 +70,7 @@ class ResultModelDatabase extends HiveObject {
   final String? adresseBanSig;
 
   @HiveField(20)
-  final GeoPoint2DModelDatabase? geoPoint2D;
-
-  @HiveField(21)
-  final String? lat;
-
-  @HiveField(22)
-  final String? long;
+  final LatLng geoPoint2D;
 
   @HiveField(23)
   bool isFav;
@@ -103,8 +97,6 @@ class ResultModelDatabase extends HiveObject {
       required this.insee,
       required this.adresseBanSig,
       required this.geoPoint2D,
-      required this.lat,
-      required this.long,
       this.isFav = false});
 
   ResultEntity get toEntity => ResultEntity(
@@ -128,13 +120,11 @@ class ResultModelDatabase extends HiveObject {
       codeDepartement: codeDepartement,
       insee: insee,
       adresseBanSig: adresseBanSig,
-      geoPoint2D: geoPoint2D?.toEntity,
-      lat: lat,
-      long: long,
+      geoPoint2D: geoPoint2D,
       isFav: true);
 
   @override
   String toString() {
-    return 'ResultEntity{monumHisComId: $monumHisComId, appellationCourante: $appellationCourante, photo: $photo, copyrightEtPropriete: $copyrightEtPropriete, epoque: $epoque, siecle: $siecle, precisionSurLaProtection: $precisionSurLaProtection, dateDeProtection: $dateDeProtection, classement: $classement, statut: $statut, description: $description, historique: $historique, auteur: $auteur, region: $region, departement: $departement, commune: $commune, niveauDeProtection: $niveauDeProtection, codeDepartement: $codeDepartement, insee: $insee, adresseBanSig: $adresseBanSig, geoPoint2D: $geoPoint2D, lat: $lat, long: $long}';
+    return 'ResultEntity{monumHisComId: $monumHisComId, appellationCourante: $appellationCourante, photo: $photo, copyrightEtPropriete: $copyrightEtPropriete, epoque: $epoque, siecle: $siecle, precisionSurLaProtection: $precisionSurLaProtection, dateDeProtection: $dateDeProtection, classement: $classement, statut: $statut, description: $description, historique: $historique, auteur: $auteur, region: $region, departement: $departement, commune: $commune, niveauDeProtection: $niveauDeProtection, codeDepartement: $codeDepartement, insee: $insee, adresseBanSig: $adresseBanSig, geoPoint2D: $geoPoint2D}';
   }
 }
