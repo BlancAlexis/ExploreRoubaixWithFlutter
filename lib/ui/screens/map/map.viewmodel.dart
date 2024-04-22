@@ -43,31 +43,19 @@ class MapsViewModel extends ViewModelAbs<MapsViewModel, MapsState> {
     });
     updateLoading(false);
   }
-  Marker _markerClusterBuilder(int clusterSize) {
-    return Marker(
-      markerId: MarkerId('cluster-$clusterSize'),
-      position: LatLng(0, 0), // Placeholder position, replaced later
-      icon: Icon(
-        Icons.pin,
-        color: Colors.blue,
-        size: clusterSize == 1 ? 30 : clusterSize * 10,
-      ),
-      infoWindow: InfoWindow(
-        title: Text('Cluster: $clusterSize'),
-      ),
-    );
-  }
+
   List<Marker>? updateMarkers(PlaceEntity places) {
     final markers = places.details
-        ?.map((place) => Marker(
+        ?.map((place) =>
+        Marker(
             markerId: MarkerId(place.monumHisComId.toString()),
             position: LatLng(double.parse(place.lat ?? "0"),
                 double.parse(place.long ?? "0")),
             infoWindow: InfoWindow(title: place.appellationCourante)))
         .toList();
-    _clusterManager.setItems(markers);
     return markers;
   }
+}
 
 
 

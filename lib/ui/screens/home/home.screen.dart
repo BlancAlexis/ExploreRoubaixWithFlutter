@@ -42,7 +42,6 @@ class _HomeScreeenState extends ConsumerState<HomeScreen> {
             : CustomScrollView(
                 controller: paginationScrollController.scrollController,
                 slivers: <Widget>[
-                  const SliverAppBar(title: Center(child: Text('Home Screen'))),
                   SliverList(
                     delegate: SliverChildBuilderDelegate((context, index) {
                       final place = state.listPlace!.details![index];

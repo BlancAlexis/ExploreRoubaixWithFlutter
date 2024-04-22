@@ -31,39 +31,63 @@ class _DetailViewModal extends ConsumerState<DetailViewScreen> {
               padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
               child: Text(
                 state.resultEntity?.appellationCourante ?? '',
-                style: const TextStyle(fontSize: 20),
+                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
                 maxLines: 1,
               ),
             ),
             if (state.resultEntity?.photo != null)
               SizedBox(
-                  width: double.infinity,
-                  height: 200,
-                  child: Image.network(state.resultEntity!.photo!.url!,
-                      fit: BoxFit.cover)),
+                width: double.infinity,
+                height: 200,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.white, // Border color
+                      width: 2.0, // Border width
+                    ),
+                    borderRadius: BorderRadius.circular(10.0),
+                    // Optional rounded corners
+                    image: DecorationImage(
+                      image: NetworkImage(state.resultEntity!.photo!.url!),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-              child: Text(state.resultEntity?.historique ?? '',
-                  style: const TextStyle(fontSize: 12),
-                  textAlign: TextAlign.justify),
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Adresse du lieu",
+                  style: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.left),
             ),
+            Text(state.resultEntity?.adresseBanSig ?? ''),
             Text(
                 'Latitude: ${state.resultEntity?.lat?.substring(0, 6) ?? ''} Longitude: ${state.resultEntity?.long?.substring(0, 6) ?? ''}',
                 style:
-                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.left),
+                    const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
             Text(
               'années : ${state.resultEntity?.epoque ?? ''}',
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const Center(
                 child: Column(
               children: <Widget>[
-                Text('Détails sur la protection du monument',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.left),
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text('Détails sur la protection du monument',
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.left),
+                ),
               ],
             )),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+              child: Text(state.resultEntity?.historique ?? '',
+                  style: const TextStyle(fontSize: 14),
+                  textAlign: TextAlign.justify),
+            ),
 
             // Text(data)
             // Text(data)

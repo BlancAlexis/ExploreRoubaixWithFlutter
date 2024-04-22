@@ -19,7 +19,8 @@ class _FavoriteViewScreen extends ConsumerState<FavoriteViewScreen> {
   Widget build(BuildContext context) {
     FavoriteViewState state = ref.watch(favoriteProvider);
     return Scaffold(
-        body: state.loading
+        body:
+        state.loading
             ? const Center(
                 child: CircularProgressIndicator(),
               )
@@ -39,6 +40,7 @@ class _FavoriteViewScreen extends ConsumerState<FavoriteViewScreen> {
                         return GestureDetector(
                           onTap: () {
                             showModalBottomSheet(
+                              showDragHandle: true,
                               isScrollControlled: true,
                               context: context,
                               builder: (context) => Column(
@@ -69,7 +71,7 @@ class _FavoriteViewScreen extends ConsumerState<FavoriteViewScreen> {
                                       fontWeight: FontWeight.bold,
                                       shadows: [
                                         Shadow(
-                                          offset: Offset(2.0, 2.0),
+                                          offset: const Offset(2.0, 2.0),
                                           blurRadius: 4.0,
                                           color: Colors.black.withOpacity(0.5),
                                         ),

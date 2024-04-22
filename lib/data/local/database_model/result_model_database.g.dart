@@ -40,7 +40,7 @@ class ResultModelDatabaseAdapter extends TypeAdapter<ResultModelDatabase> {
       geoPoint2D: fields[20] as GeoPoint2DModelDatabase?,
       lat: fields[21] as String?,
       long: fields[22] as String?,
-      isFav: fields[23] as dynamic,
+      isFav: fields[23] as bool,
     );
   }
 

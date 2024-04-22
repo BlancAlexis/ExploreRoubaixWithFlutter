@@ -29,13 +29,15 @@ class FavoritePlaceViewModel
     Result<List<ResultEntity>> result =
         await _placesRepository.getFavoritePlaces();
     if (result is Success) {
-      print('oyoyoyoyyoyo');
+      var listFav = (result as Success<List<ResultEntity>>).data;
+      if(listFav.isEmpty){
+        state = FavoriteViewState.noFav();
+      }
+      else {
       state = state.copyWith(
-          listrResultEntity: (result as Success<List<ResultEntity>>).data,
+          listrResultEntity: listFav,
           loading: false);
-    } else {
-      //   print(${(result as Error).exception});
-      return;
+    }
     }
   }
 
