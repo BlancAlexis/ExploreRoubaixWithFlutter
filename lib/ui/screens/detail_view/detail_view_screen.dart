@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:like_button/like_button.dart';
 import 'package:template_flutter_but/domain/entities/result_entity.dart';
 import 'package:template_flutter_but/ui/screens/detail_view/detail_view_state.dart';
 import 'package:template_flutter_but/ui/screens/detail_view/detail_view_viewmodel.dart';
@@ -88,26 +89,27 @@ class _DetailViewModal extends ConsumerState<DetailViewScreen> {
                   style: const TextStyle(fontSize: 14),
                   textAlign: TextAlign.justify),
             ),
-
-            // Text(data)
-            // Text(data)
             Container(
               alignment: Alignment.centerRight,
-              child: RawMaterialButton(
-                onPressed: () async {
-                  await ref
-                      .read(detailProvider.notifier)
-                      .putFavPlaces(state.resultEntity!);
+              child: LikeButton(
+                onTap: (isLiked) async {
+                  await ref.read(detailProvider.notifier).putFavPlaces(state.resultEntity!);
+                  return !isLiked;
                 },
-                elevation: 15.0,
-                fillColor: Colors.white,
-                child: Icon(
-                  color: _getColor(state.resultEntity!.isFav),
-                  Icons.favorite,
-                  size: 35.0,
-                ),
+                circleColor: CircleColor(
+                    start: Color(0xffe57fa6),
+                    end: Color(0xff907fbc)),
+                bubblesColor: BubblesColor(
+                    dotPrimaryColor: Color(0xffe57fa6),
+                    dotSecondaryColor: Color(0xff907fbc)),
+                likeBuilder: (bool isLiked) {
+                  return Icon(
+                    Icons.favorite,
+                    color: isLiked ? Colors.red : Colors.grey,
+                    size: 35.0,
+                  );
+                },
                 padding: EdgeInsets.all(15.0),
-                shape: CircleBorder(),
               ),
             ),
           ],

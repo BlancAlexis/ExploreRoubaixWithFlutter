@@ -56,6 +56,7 @@ dependencies:
   hive_flutter: ^1.1.0
   google_maps_flutter: ^2.2.8
   collection: ^1.18.0
+  like_button: ^2.0.5
 
 dev_dependencies:
   flutter_test:
