@@ -26,14 +26,13 @@ class PhotoEntity {
   get toEntityDataBase => PhotoModelDatabase(
         exifOrientation: exifOrientation,
         thumbnail: thumbnail,
-        filename: filename,
+        filename: filename ?? "default",
         format: formatEnumToString(format!),
-        //TODO format
         width: width,
-        id: id,
+        id: id ?? "-1" ,
         height: height,
         colorSummary: colorSummary,
-        url: url,
+        url: url ?? "à changer" // TODO ,,
       );
 
   @override

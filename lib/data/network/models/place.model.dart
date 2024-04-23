@@ -18,7 +18,7 @@ class PlaceModel {
 
   PlaceEntity get toEntity => PlaceEntity(
         totalCount: totalCount,
-        details: results?.map((ResultModel result) => result.toEntity).toList(),
+        details: results.map((ResultModel result) => result.toEntity).toList(),
       );
 
   @override

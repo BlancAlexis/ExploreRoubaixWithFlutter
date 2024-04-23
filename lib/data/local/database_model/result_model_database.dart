@@ -10,64 +10,64 @@ part 'result_model_database.g.dart';
 @HiveType(typeId: 4)
 class ResultModelDatabase extends HiveObject {
   @HiveField(0)
-  final int? monumHisComId;
+  final int monumHisComId;
 
   @HiveField(1)
-  final String? appellationCourante;
+  final String appellationCourante;
 
   @HiveField(2)
   final PhotoModelDatabase? photo;
 
   @HiveField(3)
-  final String? copyrightEtPropriete;
+  final String copyrightEtPropriete;
 
   @HiveField(4)
-  final String? epoque;
+  final String epoque;
 
   @HiveField(5)
-  final List<String>? siecle;
+  final List<String> siecle;
 
   @HiveField(6)
-  final String? precisionSurLaProtection;
+  final String precisionSurLaProtection;
 
   @HiveField(7)
-  final DateTime? dateDeProtection;
+  final DateTime dateDeProtection;
 
   @HiveField(8)
-  final String? classement;
+  final String classement;
 
   @HiveField(9)
-  final String? statut;
+  final String statut;
 
   @HiveField(10)
-  final String? description;
+  final String description;
 
   @HiveField(11)
-  final String? historique;
+  final String historique;
 
   @HiveField(12)
-  final String? auteur;
+  final String auteur;
 
   @HiveField(13)
-  final String? region;
+  final String region;
 
   @HiveField(14)
-  final String? departement;
+  final String departement;
 
   @HiveField(15)
-  final String? commune;
+  final String commune;
 
   @HiveField(16)
-  final String? niveauDeProtection;
+  final String niveauDeProtection;
 
   @HiveField(17)
-  final int? codeDepartement;
+  final int codeDepartement;
 
   @HiveField(18)
-  final int? insee;
+  final int insee;
 
   @HiveField(19)
-  final String? adresseBanSig;
+  final String adresseBanSig;
 
   @HiveField(20)
   final LatLng geoPoint2D;

@@ -40,15 +40,15 @@ class PhotoModelDatabase extends HiveObject {
   get toEntity => PhotoEntity(
         exifOrientation: exifOrientation,
         thumbnail: thumbnail,
-        filename: filename,
+        filename: filename ?? "default",
         format: format == null
             ? null
             : FormatEnum.values.firstWhere((e) => e.name == format),
         width: width,
-        id: id,
+        id: id ?? "-1",
         height: height,
         colorSummary: colorSummary,
-        url: url,
+        url: url ?? "à changer" // TODO ,
       );
 
   @override

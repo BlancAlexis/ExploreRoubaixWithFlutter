@@ -5,45 +5,45 @@ import '../../data/local/database_model/result_model_database.dart';
 
 class ResultEntity {
   late  bool isFav = false;
-  final int? monumHisComId;
+  final int monumHisComId;
 
-  final String? appellationCourante;
+  final String appellationCourante;
 
   final PhotoEntity? photo;
 
-  final String? copyrightEtPropriete;
+  final String copyrightEtPropriete;
 
-  final String? epoque;
+  final String epoque;
 
-  final List<String>? siecle;
+  final List<String> siecle;
 
-  final String? precisionSurLaProtection;
+  final String precisionSurLaProtection;
 
-  final DateTime? dateDeProtection;
+  final DateTime dateDeProtection;
 
-  final String? classement;
+  final String classement;
 
-  final String? statut;
+  final String statut;
 
-  final String? description;
+  final String description;
 
-  final String? historique;
+  final String historique;
 
-  final String? auteur;
+  final String auteur;
 
-  final String? region;
+  final String region;
 
-  final String? departement;
+  final String departement;
 
-  final String? commune;
+  final String commune;
 
-  final String? niveauDeProtection;
+  final String niveauDeProtection;
 
-  final int? codeDepartement;
+  final int codeDepartement;
 
-  final int? insee;
+  final int insee;
 
-  final String? adresseBanSig;
+  final String adresseBanSig;
 
   final LatLng geoPoint2D;
 
