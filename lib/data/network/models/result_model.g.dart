@@ -58,5 +58,5 @@ Map<String, dynamic> _$ResultModelToJson(ResultModel instance) =>
       'code_departement': instance.codeDepartement,
       'insee': instance.insee,
       'adresse_ban_sig': instance.adresseBanSig,
-      'geo_point2_d': ResultModel._latLngToJson(instance.geoPoint2D),
+      'geo_point_2d': ResultModel._latLngToJson(instance.geoPoint2D),
     };

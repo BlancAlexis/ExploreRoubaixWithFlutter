@@ -28,7 +28,7 @@ class ResultModel {
   final int? codeDepartement;
   final int? insee;
   final String? adresseBanSig;
-  @JsonKey(fromJson: _latLngFromJson, toJson: _latLngToJson)
+  @JsonKey(name :'geo_point_2d',fromJson: _latLngFromJson, toJson: _latLngToJson)
   final LatLng? geoPoint2D;
 
   const ResultModel({

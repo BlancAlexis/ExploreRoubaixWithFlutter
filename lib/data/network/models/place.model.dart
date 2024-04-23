@@ -6,8 +6,8 @@ part 'place.model.g.dart';
 
 @JsonSerializable(explicitToJson: true, fieldRename: FieldRename.snake)
 class PlaceModel {
-  final int? totalCount;
-  final List<ResultModel>? results;
+  final int totalCount;
+  final List<ResultModel> results;
 
   const PlaceModel({required this.totalCount, required this.results});
 
