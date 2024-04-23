@@ -8,14 +8,14 @@ part 'photo_model.g.dart';
 class PhotoModel {
   final int? exifOrientation;
   final bool? thumbnail;
-  final String? filename;
+  final String filename;
   @JsonKey(unknownEnumValue: FormatEnum.none)
   final FormatEnum? format;
   final int? width;
-  final String? id;
+  final String id;
   final int? height;
   final List<String>? colorSummary;
-  final String? url;
+  final String url;
 
   const PhotoModel(
       {required this.exifOrientation,

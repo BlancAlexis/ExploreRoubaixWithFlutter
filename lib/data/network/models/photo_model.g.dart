@@ -9,16 +9,16 @@ part of 'photo_model.dart';
 PhotoModel _$PhotoModelFromJson(Map<String, dynamic> json) => PhotoModel(
       exifOrientation: json['exif_orientation'] as int?,
       thumbnail: json['thumbnail'] as bool?,
-      filename: json['filename'] as String?,
+      filename: json['filename'] as String,
       format: $enumDecodeNullable(_$FormatEnumEnumMap, json['format'],
           unknownValue: FormatEnum.none),
       width: json['width'] as int?,
-      id: json['id'] as String?,
+      id: json['id'] as String,
       height: json['height'] as int?,
       colorSummary: (json['color_summary'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
-      url: json['url'] as String?,
+      url: json['url'] as String,
     );
 
 Map<String, dynamic> _$PhotoModelToJson(PhotoModel instance) =>

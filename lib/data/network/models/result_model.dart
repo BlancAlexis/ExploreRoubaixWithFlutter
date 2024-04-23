@@ -28,7 +28,7 @@ class ResultModel {
   final int? codeDepartement;
   final int? insee;
   final String adresseBanSig;
-  @JsonKey(name :'geo_point_2d',fromJson: _latLngFromJson, toJson: _latLngToJson)
+  @JsonKey(name :'geo_point_2d',fromJson: _latLngFromJson)
   final LatLng? geoPoint2D;
 
   const ResultModel({
@@ -66,17 +66,17 @@ class ResultModel {
         dateDeProtection: dateDeProtection,
         classement: classement,
         statut: statut,
-        description: description,
-        historique: historique,
-        auteur: auteur,
-        region: region,
-        departement: departement,
-        commune: commune,
-        niveauDeProtection: niveauDeProtection,
+        description: description ?? "Aucune description",
+        historique: historique ?? "Aucune description",
+        auteur: auteur ?? "Aucune description",
+        region: region ?? "Aucune description",
+        departement: departement ?? "Aucune description",
+        commune: commune ?? "Aucune description",
+        niveauDeProtection: niveauDeProtection ?? "Aucune description",
         codeDepartement: codeDepartement,
         insee: insee,
         adresseBanSig: adresseBanSig,
-        geoPoint2D: geoPoint2D ?? const LatLng(0, 0),
+        geoPoint2D: geoPoint2D ?? const LatLng(50.69421, 3.17456),
       );
 
   factory ResultModel.fromJson(Map<String, dynamic> json) => _$ResultModelFromJson(json);
@@ -90,9 +90,6 @@ class ResultModel {
     return LatLng(json['lat'] as double, json['lon'] as double);
   }
 
-  static Map<String, dynamic> _latLngToJson(LatLng? object) {
-    return {'latitude': object?.latitude ?? 0, 'longitude': object?.longitude??  0};
-  }
 
   @override
   String toString() {
