@@ -13,8 +13,8 @@ class LocalFavoriteDataSourceImpl implements LocalFavoriteDataSource {
   Future<Result<List<ResultModelDatabase>>> getFavoritePlaces() async {
     try {
       List<ResultModelDatabase> listPlaces = [];
-      var box = await Hive.openBox(nameBox);
-      for (var key in box.keys) {
+      Box box = await Hive.openBox(nameBox);
+      for (dynamic key in box.keys) {
         listPlaces.add(box.get(key));
       }
       return Success(data: listPlaces);
@@ -50,8 +50,8 @@ class LocalFavoriteDataSourceImpl implements LocalFavoriteDataSource {
   @override
   Future<Result<bool>> isFavorite(int monumentId) async {
     try {
-      final box = await Hive.openBox(nameBox);
-      final isFavorite = box.containsKey(monumentId); // Check if key exists
+      final Box box = await Hive.openBox(nameBox);
+      final bool isFavorite = box.containsKey(monumentId);
       return Success(data: isFavorite);
     } on Exception catch (exception) {
       return Error(exception: exception);

@@ -10,8 +10,7 @@ import '../../data_source/places/local/local.favorite_data_source.dart';
 class LocalRepositoryImpl implements PlacesLocalRepository {
   final LocalFavoriteDataSource localDataSource;
 
-  LocalRepositoryImpl({required LocalFavoriteDataSource localDataSource})
-      : localDataSource = localDataSource;
+  LocalRepositoryImpl({required this.localDataSource});
 
   @override
   Future<Result<List<ResultEntity>>> getFavoritePlaces() {

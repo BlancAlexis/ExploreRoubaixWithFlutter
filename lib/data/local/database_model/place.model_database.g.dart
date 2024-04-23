@@ -8,7 +8,7 @@ part of 'place.model_database.dart';
 
 class PlaceModelDatabaseAdapter extends TypeAdapter<PlaceModelDatabase> {
   @override
-  final int typeId = 3;
+  final int typeId = 2;
 
   @override
   PlaceModelDatabase read(BinaryReader reader) {
@@ -17,8 +17,8 @@ class PlaceModelDatabaseAdapter extends TypeAdapter<PlaceModelDatabase> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return PlaceModelDatabase(
-      totalCount: fields[0] as int?,
-      details: (fields[1] as List?)?.cast<ResultEntity>(),
+      totalCount: fields[0] as int,
+      details: (fields[1] as List).cast<ResultEntity>(),
     );
   }
 

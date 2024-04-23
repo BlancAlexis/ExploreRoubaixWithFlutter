@@ -8,7 +8,7 @@ part of 'result_model_database.dart';
 
 class ResultModelDatabaseAdapter extends TypeAdapter<ResultModelDatabase> {
   @override
-  final int typeId = 4;
+  final int typeId = 3;
 
   @override
   ResultModelDatabase read(BinaryReader reader) {

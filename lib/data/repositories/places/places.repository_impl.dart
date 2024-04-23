@@ -21,7 +21,7 @@ class PlacesRepositoryImpl implements PlacesRepository {
   @override
   Future<PlaceEntity> getPlaces() async {
     final PlaceModel model = await _placesRemoteDataSource.getPlaces();
-    var entity = model.toEntity;
+    PlaceEntity entity = model.toEntity;
     entity.details.forEach((detail) async {
       final Result<bool> isFav =
           await _favoriteDataSource.isFavorite(detail.monumHisComId);

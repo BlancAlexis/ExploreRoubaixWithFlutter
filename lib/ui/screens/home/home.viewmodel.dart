@@ -15,9 +15,8 @@ final StateNotifierProvider<HomeViewModel, HomeState> homeProvider =
 class HomeViewModel extends ViewModelAbs<HomeViewModel, HomeState> {
   final PlaceEntitySingleton placeEntitySingleton;
 
-  HomeViewModel({required PlaceEntitySingleton placeEntitySingleton})
-      : placeEntitySingleton = placeEntitySingleton,
-        super(const HomeState.initial()) {
+  HomeViewModel({required this.placeEntitySingleton})
+      : super(const HomeState.initial()) {
     _init();
   }
 

@@ -5,6 +5,7 @@ import 'package:template_flutter_but/application/injections/initializer.dart';
 import 'package:template_flutter_but/ui/screens/nav_bar/nav_bar_ui.dart';
 
 import 'data/local/database_model/photo_model_database.dart';
+import 'data/local/database_model/place.model_database.dart';
 import 'data/local/database_model/result_model_database.dart';
 
 void main() async {
@@ -13,6 +14,8 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(ResultModelDatabaseAdapter());
   Hive.registerAdapter(PhotoModelDatabaseAdapter());
+  Hive.registerAdapter(PlaceModelDatabaseAdapter());
+  Hive.registerAdapter(GeoPoint2DModelDatabaseAdapter());
   runApp(const ProviderScope(child: MyApp()));
 }
 

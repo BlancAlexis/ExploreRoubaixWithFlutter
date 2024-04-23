@@ -5,7 +5,7 @@ import '../../network/models/format_enum.dart';
 
 part 'photo_model_database.g.dart';
 
-@HiveType(typeId: 2)
+@HiveType(typeId: 1)
 class PhotoModelDatabase extends HiveObject {
   @HiveField(0)
   final int? exifOrientation;

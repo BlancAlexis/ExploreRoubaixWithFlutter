@@ -21,4 +21,6 @@ class DetailViewState extends ViewStateAbs {
   List<Object?> get props => <Object?>[
         resultEntity,
       ];
+
+  // TODO  Comment géré state
 }

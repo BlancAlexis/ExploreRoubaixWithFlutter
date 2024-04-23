@@ -7,7 +7,7 @@ import '../../../domain/entities/result_entity.dart';
 
 part 'result_model_database.g.dart';
 
-@HiveType(typeId: 4)
+@HiveType(typeId: 3)
 class ResultModelDatabase extends HiveObject {
   @HiveField(0)
   final int monumHisComId;

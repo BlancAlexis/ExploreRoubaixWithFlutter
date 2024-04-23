@@ -18,9 +18,8 @@ final StateNotifierProvider<MapsViewModel, MapsState> mapsProvider =
 class MapsViewModel extends ViewModelAbs<MapsViewModel, MapsState> {
   final PlaceEntitySingleton placeEntitySingleton;
 
-  MapsViewModel({required PlaceEntitySingleton placeEntitySingleton})
-      : placeEntitySingleton = placeEntitySingleton,
-        super(MapsState.initial()) {
+  MapsViewModel({required this.placeEntitySingleton})
+      : super(MapsState.initial()) {
     _init();
   }
 

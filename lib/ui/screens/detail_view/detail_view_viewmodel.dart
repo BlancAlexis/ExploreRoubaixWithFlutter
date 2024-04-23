@@ -22,7 +22,7 @@ class DetailViewViewModel
   final PlacesLocalRepository _placesRepository;
 
   init(ResultEntity resultEntity) {
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       state = state.copyWith(resultEntity: resultEntity);
     });
   }
@@ -65,6 +65,4 @@ class DetailViewViewModel
   DetailViewViewModel({required PlacesLocalRepository placesRepository})
       : _placesRepository = placesRepository,
         super(DetailViewState.initial());
-
-//  DetailViewViewModel() : super(DetailViewState.initial());
 }
