@@ -32,7 +32,8 @@ class _DetailViewModal extends ConsumerState<DetailViewScreen> {
               padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
               child: Text(
                 state.resultEntity?.appellationCourante ?? '',
-                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: const TextStyle(
+                    fontSize: 20, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
                 maxLines: 1,
               ),
@@ -65,24 +66,27 @@ class _DetailViewModal extends ConsumerState<DetailViewScreen> {
             ),
             Text(state.resultEntity?.adresseBanSig ?? ''),
             Text(
-                'Latitude: ${state.resultEntity?.geoPoint2D.latitude.toString().substring(0, 6) ?? ''} Longitude: ${state.resultEntity?.geoPoint2D.longitude.toString().substring(0, 6) ?? ''}',
+                'Latitude: ${state.resultEntity?.geoPoint2D.latitude.toString()
+                    .substring(0, 6) ?? ''} Longitude: ${state.resultEntity
+                    ?.geoPoint2D.longitude.toString().substring(0, 6) ?? ''}',
                 style:
-                    const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+                const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
             Text(
               'années : ${state.resultEntity?.epoque ?? ''}',
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const Center(
                 child: Column(
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text('Détails sur la protection du monument',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.left),
-                ),
-              ],
-            )),
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text('Détails sur la protection du monument',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.left),
+                    ),
+                  ],
+                )),
             Padding(
               padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
               child: Text(state.resultEntity?.historique ?? '',
@@ -93,7 +97,8 @@ class _DetailViewModal extends ConsumerState<DetailViewScreen> {
               alignment: Alignment.centerRight,
               child: LikeButton(
                 onTap: (isLiked) async {
-                  await ref.read(detailProvider.notifier).putFavPlaces(state.resultEntity!);
+                  await ref.read(detailProvider.notifier).putFavPlaces(
+                      state.resultEntity!);
                   return !isLiked;
                 },
                 circleColor: CircleColor(
@@ -116,14 +121,6 @@ class _DetailViewModal extends ConsumerState<DetailViewScreen> {
         ),
       ),
     );
-  }
-
-  Color _getColor(bool isFav) {
-    if (isFav == true) {
-      return Colors.red;
-    } else {
-      return Colors.grey;
-    }
   }
 
   @override
