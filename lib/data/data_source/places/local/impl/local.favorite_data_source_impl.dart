@@ -46,4 +46,15 @@ class LocalFavoriteDataSourceImpl implements LocalFavoriteDataSource {
       return Error(exception: exception);
     }
   }
+
+  @override
+  Future<Result<bool>> isFavorite(int monumentId) async {
+    try {
+      final box = await Hive.openBox(nameBox);
+      final isFavorite = box.containsKey(monumentId); // Check if key exists
+      return Success(data: isFavorite);
+    } on Exception catch (exception) {
+      return Error(exception: exception);
+    }
+  }
 }

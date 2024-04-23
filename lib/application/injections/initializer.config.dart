@@ -57,7 +57,9 @@ extension GetItInjectableX on _i1.GetIt {
         _i11.PlacesRemoteDataSourceImpl(
             placesEndpoint: gh<_i7.PlacesEndpoint>()));
     gh.singleton<_i12.PlacesRepository>(() => _i13.PlacesRepositoryImpl(
-        placesRemoteDataSource: gh<_i10.PlacesRemoteDataSource>()));
+          placesRemoteDataSource: gh<_i10.PlacesRemoteDataSource>(),
+          localFavoriteDataSource: gh<_i4.LocalFavoriteDataSource>(),
+        ));
     gh.singleton<_i14.PlaceEntitySingleton>(
         () => _i14.PlaceEntitySingleton(gh<_i12.PlacesRepository>()));
     return this;
