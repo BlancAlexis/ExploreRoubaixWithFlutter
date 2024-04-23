@@ -7,21 +7,19 @@ part of 'result_model.dart';
 // **************************************************************************
 
 ResultModel _$ResultModelFromJson(Map<String, dynamic> json) => ResultModel(
-      monumHisComId: json['monum_his_com_id'] as int?,
-      appellationCourante: json['appellation_courante'] as String?,
+      monumHisComId: json['monum_his_com_id'] as int,
+      appellationCourante: json['appellation_courante'] as String,
       photo: json['photo'] == null
           ? null
           : PhotoModel.fromJson(json['photo'] as Map<String, dynamic>),
       copyrightEtPropriete: json['copyright_et_propriete'] as String?,
-      epoque: json['epoque'] as String?,
+      epoque: json['epoque'] as String,
       siecle:
-          (json['siecle'] as List<dynamic>?)?.map((e) => e as String).toList(),
+          (json['siecle'] as List<dynamic>).map((e) => e as String).toList(),
       precisionSurLaProtection: json['precision_sur_la_protection'] as String?,
-      dateDeProtection: json['date_de_protection'] == null
-          ? null
-          : DateTime.parse(json['date_de_protection'] as String),
-      classement: json['classement'] as String?,
-      statut: json['statut'] as String?,
+      dateDeProtection: DateTime.parse(json['date_de_protection'] as String),
+      classement: json['classement'] as String,
+      statut: json['statut'] as String,
       description: json['description'] as String?,
       historique: json['historique'] as String?,
       auteur: json['auteur'] as String?,
@@ -31,7 +29,7 @@ ResultModel _$ResultModelFromJson(Map<String, dynamic> json) => ResultModel(
       niveauDeProtection: json['niveau_de_protection'] as String?,
       codeDepartement: json['code_departement'] as int?,
       insee: json['insee'] as int?,
-      adresseBanSig: json['adresse_ban_sig'] as String?,
+      adresseBanSig: json['adresse_ban_sig'] as String,
       geoPoint2D: ResultModel._latLngFromJson(
           json['geo_point_2d'] as Map<String, dynamic>?),
     );
@@ -45,7 +43,7 @@ Map<String, dynamic> _$ResultModelToJson(ResultModel instance) =>
       'epoque': instance.epoque,
       'siecle': instance.siecle,
       'precision_sur_la_protection': instance.precisionSurLaProtection,
-      'date_de_protection': instance.dateDeProtection?.toIso8601String(),
+      'date_de_protection': instance.dateDeProtection.toIso8601String(),
       'classement': instance.classement,
       'statut': instance.statut,
       'description': instance.description,

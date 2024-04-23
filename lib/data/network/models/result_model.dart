@@ -8,16 +8,16 @@ part 'result_model.g.dart';
 
 @JsonSerializable(explicitToJson: true, fieldRename: FieldRename.snake)
 class ResultModel {
-  final int? monumHisComId;
-  final String? appellationCourante;
+  final int monumHisComId;
+  final String appellationCourante;
   final PhotoModel? photo;
   final String? copyrightEtPropriete;
-  final String? epoque;
-  final List<String>? siecle;
+  final String epoque;
+  final List<String> siecle;
   final String? precisionSurLaProtection;
-  final DateTime? dateDeProtection;
-  final String? classement;
-  final String? statut;
+  final DateTime dateDeProtection;
+  final String classement;
+  final String statut;
   final String? description;
   final String? historique;
   final String? auteur;
@@ -27,7 +27,7 @@ class ResultModel {
   final String? niveauDeProtection;
   final int? codeDepartement;
   final int? insee;
-  final String? adresseBanSig;
+  final String adresseBanSig;
   @JsonKey(name :'geo_point_2d',fromJson: _latLngFromJson, toJson: _latLngToJson)
   final LatLng? geoPoint2D;
 

@@ -38,7 +38,7 @@ class ResultModelDatabaseAdapter extends TypeAdapter<ResultModelDatabase> {
       insee: fields[18] as int?,
       adresseBanSig: fields[19] as String?,
       geoPoint2D: fields[20] as LatLng,
-      isFav: fields[23] as bool,
+      isFav: fields[21] as bool,
     );
   }
 
@@ -88,7 +88,7 @@ class ResultModelDatabaseAdapter extends TypeAdapter<ResultModelDatabase> {
       ..write(obj.adresseBanSig)
       ..writeByte(20)
       ..write(obj.geoPoint2D)
-      ..writeByte(23)
+      ..writeByte(21)
       ..write(obj.isFav);
   }
 

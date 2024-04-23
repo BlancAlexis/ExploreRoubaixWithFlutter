@@ -72,7 +72,7 @@ class ResultModelDatabase extends HiveObject {
   @HiveField(20)
   final LatLng geoPoint2D;
 
-  @HiveField(23)
+  @HiveField(21)
   bool isFav;
 
   ResultModelDatabase(
