@@ -46,11 +46,9 @@ class MapsViewModel extends ViewModelAbs<MapsViewModel, MapsState> {
 
   List<Marker>? updateMarkers(PlaceEntity places) {
     final markers = places.details
-        ?.map((place) =>
-        Marker(
+        ?.map((place) => Marker(
             markerId: MarkerId(place.monumHisComId.toString()),
-            position: LatLng(double.parse(place.lat ?? "0"),
-                double.parse(place.long ?? "0")),
+            position: place.geoPoint2D,
             infoWindow: InfoWindow(title: place.appellationCourante)))
         .toList();
     return markers;

@@ -32,12 +32,8 @@ ResultModel _$ResultModelFromJson(Map<String, dynamic> json) => ResultModel(
       codeDepartement: json['code_departement'] as int?,
       insee: json['insee'] as int?,
       adresseBanSig: json['adresse_ban_sig'] as String?,
-      geoPoint2D: json['geo_point2_d'] == null
-          ? null
-          : GeoPoint2DModel.fromJson(
-              json['geo_point2_d'] as Map<String, dynamic>),
-      lat: json['lat'] as String?,
-      long: json['long'] as String?,
+      geoPoint2D: ResultModel._latLngFromJson(
+          json['geo_point_2d'] as Map<String, dynamic>?),
     );
 
 Map<String, dynamic> _$ResultModelToJson(ResultModel instance) =>
@@ -62,7 +58,5 @@ Map<String, dynamic> _$ResultModelToJson(ResultModel instance) =>
       'code_departement': instance.codeDepartement,
       'insee': instance.insee,
       'adresse_ban_sig': instance.adresseBanSig,
-      'geo_point2_d': instance.geoPoint2D?.toJson(),
-      'lat': instance.lat,
-      'long': instance.long,
+      'geo_point2_d': ResultModel._latLngToJson(instance.geoPoint2D),
     };

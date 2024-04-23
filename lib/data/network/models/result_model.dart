@@ -1,8 +1,8 @@
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:template_flutter_but/data/network/models/photo_model.dart';
 
 import '../../../domain/entities/result_entity.dart';
-import 'geo_point_2d_model.dart';
 
 part 'result_model.g.dart';
 
@@ -28,9 +28,8 @@ class ResultModel {
   final int? codeDepartement;
   final int? insee;
   final String? adresseBanSig;
-  final GeoPoint2DModel? geoPoint2D;
-  final String? lat;
-  final String? long;
+  @JsonKey(fromJson: _latLngFromJson, toJson: _latLngToJson)
+  final LatLng? geoPoint2D;
 
   const ResultModel({
     required this.monumHisComId,
@@ -54,14 +53,7 @@ class ResultModel {
     required this.insee,
     required this.adresseBanSig,
     required this.geoPoint2D,
-    required this.lat,
-    required this.long,
   });
-
-  factory ResultModel.fromJson(Map<String, dynamic> json) =>
-      _$ResultModelFromJson(json);
-
-  Map<String, dynamic> toJson() => _$ResultModelToJson(this);
 
   ResultEntity get toEntity => ResultEntity(
         monumHisComId: monumHisComId,
@@ -84,13 +76,26 @@ class ResultModel {
         codeDepartement: codeDepartement,
         insee: insee,
         adresseBanSig: adresseBanSig,
-        geoPoint2D: geoPoint2D?.toEntity,
-        lat: lat,
-        long: long,
+        geoPoint2D: geoPoint2D ?? const LatLng(0, 0),
       );
+
+  factory ResultModel.fromJson(Map<String, dynamic> json) => _$ResultModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ResultModelToJson(this);
+
+  static LatLng _latLngFromJson(Map<String, dynamic>? json) {
+    if(json == null){
+      return LatLng(0, 0);
+    }
+    return LatLng(json['lat'] as double, json['lon'] as double);
+  }
+
+  static Map<String, dynamic> _latLngToJson(LatLng? object) {
+    return {'latitude': object?.latitude ?? 0, 'longitude': object?.longitude??  0};
+  }
 
   @override
   String toString() {
-    return 'ResultModel{monumHisComId: $monumHisComId, appellationCourante: $appellationCourante, photo: $photo, copyrightEtPropriete: $copyrightEtPropriete, epoque: $epoque, siecle: $siecle, precisionSurLaProtection: $precisionSurLaProtection, dateDeProtection: $dateDeProtection, classement: $classement, statut: $statut, description: $description, historique: $historique, auteur: $auteur, region: $region, departement: $departement, commune: $commune, niveauDeProtection: $niveauDeProtection, codeDepartement: $codeDepartement, insee: $insee, adresseBanSig: $adresseBanSig, geoPoint2D: $geoPoint2D, lat: $lat, long: $long}';
+    return 'ResultModel{monumHisComId: $monumHisComId, appellationCourante: $appellationCourante, photo: $photo, copyrightEtPropriete: $copyrightEtPropriete, epoque: $epoque, siecle: $siecle, precisionSurLaProtection: $precisionSurLaProtection, dateDeProtection: $dateDeProtection, classement: $classement, statut: $statut, description: $description, historique: $historique, auteur: $auteur, region: $region, departement: $departement, commune: $commune, niveauDeProtection: $niveauDeProtection, codeDepartement: $codeDepartement, insee: $insee, adresseBanSig: $adresseBanSig, geoPoint2D: $geoPoint2D}';
   }
 }

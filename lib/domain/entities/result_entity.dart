@@ -1,7 +1,7 @@
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:template_flutter_but/domain/entities/photo_entity.dart';
 
 import '../../data/local/database_model/result_model_database.dart';
-import 'geo_point_2d_entity.dart';
 
 class ResultEntity {
   late  bool isFav = false;
@@ -45,11 +45,8 @@ class ResultEntity {
 
   final String? adresseBanSig;
 
-  final GeoPoint2DEntity? geoPoint2D;
+  final LatLng geoPoint2D;
 
-  final String? lat;
-
-  final String? long;
 
   ResultEntity(
       {required this.monumHisComId,
@@ -73,8 +70,6 @@ class ResultEntity {
       required this.insee,
       required this.adresseBanSig,
       required this.geoPoint2D,
-      required this.lat,
-      required this.long,
       bool isFav = false});
 
   // Forcément ça marche pas puisque y'a pas de champs isFav
@@ -100,13 +95,11 @@ class ResultEntity {
         codeDepartement: codeDepartement,
         insee: insee,
         adresseBanSig: adresseBanSig,
-        geoPoint2D: geoPoint2D?.toEntityDataBase,
-        lat: lat,
-        long: long,
+        geoPoint2D: geoPoint2D,
       );
 
   @override
   String toString() {
-    return 'ResultEntity{monumHisComId: $monumHisComId, appellationCourante: $appellationCourante, photo: $photo, copyrightEtPropriete: $copyrightEtPropriete, epoque: $epoque, siecle: $siecle, precisionSurLaProtection: $precisionSurLaProtection, dateDeProtection: $dateDeProtection, classement: $classement, statut: $statut, description: $description, historique: $historique, auteur: $auteur, region: $region, departement: $departement, commune: $commune, niveauDeProtection: $niveauDeProtection, codeDepartement: $codeDepartement, insee: $insee, adresseBanSig: $adresseBanSig, geoPoint2D: $geoPoint2D, lat: $lat, long: $long}';
+    return 'ResultEntity{monumHisComId: $monumHisComId, appellationCourante: $appellationCourante, photo: $photo, copyrightEtPropriete: $copyrightEtPropriete, epoque: $epoque, siecle: $siecle, precisionSurLaProtection: $precisionSurLaProtection, dateDeProtection: $dateDeProtection, classement: $classement, statut: $statut, description: $description, historique: $historique, auteur: $auteur, region: $region, departement: $departement, commune: $commune, niveauDeProtection: $niveauDeProtection, codeDepartement: $codeDepartement, insee: $insee, adresseBanSig: $adresseBanSig, geoPoint2D: $geoPoint2D}';
   }
 }

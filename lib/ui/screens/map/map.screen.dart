@@ -21,7 +21,6 @@ class MapSampleState extends ConsumerState<MapSample> {
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
 
-
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(mapsProvider);
