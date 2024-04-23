@@ -19,8 +19,7 @@ class _FavoriteViewScreen extends ConsumerState<FavoriteViewScreen> {
   Widget build(BuildContext context) {
     FavoriteViewState state = ref.watch(favoriteProvider);
     return Scaffold(
-        body:
-        state.loading
+        body: state.loading
             ? const Center(
                 child: CircularProgressIndicator(),
               )

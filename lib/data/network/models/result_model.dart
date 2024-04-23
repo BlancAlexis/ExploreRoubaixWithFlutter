@@ -28,7 +28,7 @@ class ResultModel {
   final int? codeDepartement;
   final int? insee;
   final String adresseBanSig;
-  @JsonKey(name :'geo_point_2d',fromJson: _latLngFromJson)
+  @JsonKey(name: 'geo_point_2d', fromJson: _latLngFromJson)
   final LatLng? geoPoint2D;
 
   const ResultModel({
@@ -62,7 +62,8 @@ class ResultModel {
         copyrightEtPropriete: copyrightEtPropriete ?? "Aucune description",
         epoque: epoque,
         siecle: siecle,
-        precisionSurLaProtection: precisionSurLaProtection ?? "Aucune description",
+        precisionSurLaProtection:
+            precisionSurLaProtection ?? "Aucune description",
         dateDeProtection: dateDeProtection,
         classement: classement,
         statut: statut,
@@ -79,17 +80,17 @@ class ResultModel {
         geoPoint2D: geoPoint2D ?? const LatLng(50.69421, 3.17456),
       );
 
-  factory ResultModel.fromJson(Map<String, dynamic> json) => _$ResultModelFromJson(json);
+  factory ResultModel.fromJson(Map<String, dynamic> json) =>
+      _$ResultModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$ResultModelToJson(this);
 
   static LatLng _latLngFromJson(Map<String, dynamic>? json) {
-    if(json == null){
+    if (json == null) {
       return LatLng(0, 0);
     }
     return LatLng(json['lat'] as double, json['lon'] as double);
   }
-
 
   @override
   String toString() {

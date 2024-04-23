@@ -10,5 +10,5 @@ abstract class LocalFavoriteDataSource {
   Future<Result<void>> removeFavoritePlaces(
       ResultModelDatabase resultEntityDatabase);
 
-  Future <Result<bool>> isFavorite(int monumentId);
+  Future<Result<bool>> isFavorite(int monumentId);
 }

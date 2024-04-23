@@ -14,7 +14,6 @@ class MapsState extends ViewStateAbs {
   final PlaceEntity? listPlace;
   final List<Marker> markers;
 
-
   const MapsState({
     required this.loading,
     required this.listPlace,

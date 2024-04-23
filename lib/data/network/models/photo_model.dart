@@ -36,7 +36,7 @@ class PhotoModel {
   PhotoEntity get toEntity => PhotoEntity(
       exifOrientation: exifOrientation,
       thumbnail: thumbnail,
-      filename: filename ,
+      filename: filename,
       format: format,
       width: width,
       id: id,

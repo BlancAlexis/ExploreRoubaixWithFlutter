@@ -38,17 +38,17 @@ class PhotoModelDatabase extends HiveObject {
       required this.url});
 
   get toEntity => PhotoEntity(
-        exifOrientation: exifOrientation,
-        thumbnail: thumbnail,
-        filename: filename ?? "default",
-        format: format == null
-            ? null
-            : FormatEnum.values.firstWhere((e) => e.name == format),
-        width: width,
-        id: id ?? "-1",
-        height: height,
-        colorSummary: colorSummary,
-        url: url ?? "à changer" // TODO ,
+      exifOrientation: exifOrientation,
+      thumbnail: thumbnail,
+      filename: filename ?? "default",
+      format: format == null
+          ? null
+          : FormatEnum.values.firstWhere((e) => e.name == format),
+      width: width,
+      id: id ?? "-1",
+      height: height,
+      colorSummary: colorSummary,
+      url: url ?? "à changer" // TODO ,
       );
 
   @override

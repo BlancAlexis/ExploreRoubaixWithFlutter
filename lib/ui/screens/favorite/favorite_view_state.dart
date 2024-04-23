@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:template_flutter_but/ui/abstraction/view_state_abs.dart';
 
@@ -26,5 +24,4 @@ class FavoriteViewState extends ViewStateAbs {
   List<Object?> get props => <Object?>[
         listrResultEntity,
       ];
-
 }

@@ -4,7 +4,7 @@ import 'package:template_flutter_but/domain/entities/photo_entity.dart';
 import '../../data/local/database_model/result_model_database.dart';
 
 class ResultEntity {
-  late  bool isFav = false;
+  late bool isFav = false;
   final int monumHisComId;
 
   final String appellationCourante;
@@ -46,7 +46,6 @@ class ResultEntity {
   final String adresseBanSig;
 
   final LatLng geoPoint2D;
-
 
   ResultEntity(
       {required this.monumHisComId,

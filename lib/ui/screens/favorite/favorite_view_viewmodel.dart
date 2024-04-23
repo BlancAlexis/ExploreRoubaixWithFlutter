@@ -30,14 +30,11 @@ class FavoritePlaceViewModel
         await _placesRepository.getFavoritePlaces();
     if (result is Success) {
       var listFav = (result as Success<List<ResultEntity>>).data;
-      if(listFav.isEmpty){
+      if (listFav.isEmpty) {
         state = FavoriteViewState.noFav();
+      } else {
+        state = state.copyWith(listrResultEntity: listFav, loading: false);
       }
-      else {
-      state = state.copyWith(
-          listrResultEntity: listFav,
-          loading: false);
-    }
     }
   }
 

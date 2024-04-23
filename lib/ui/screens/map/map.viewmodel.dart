@@ -54,7 +54,3 @@ class MapsViewModel extends ViewModelAbs<MapsViewModel, MapsState> {
     return markers;
   }
 }
-
-
-
-
