@@ -1,13 +1,14 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:template_flutter_but/data/local/database_model/geo_point_2d_model_database.dart';
 import 'package:template_flutter_but/data/local/database_model/photo_model_database.dart';
 
 import '../../../domain/entities/result_entity.dart';
 
 part 'result_model_database.g.dart';
 
-@HiveType(typeId: 3)
+@HiveType(typeId: 4)
 class ResultModelDatabase extends HiveObject {
   @HiveField(0)
   final int monumHisComId;
@@ -70,7 +71,7 @@ class ResultModelDatabase extends HiveObject {
   final String adresseBanSig;
 
   @HiveField(20)
-  final LatLng geoPoint2D;
+  final LatLngAdapter geoPoint2D;
 
   @HiveField(21)
   bool isFav;
@@ -120,7 +121,7 @@ class ResultModelDatabase extends HiveObject {
       codeDepartement: codeDepartement,
       insee: insee,
       adresseBanSig: adresseBanSig,
-      geoPoint2D: geoPoint2D,
+      geoPoint2D:  LatLng(geoPoint2D.latitude, geoPoint2D.longitude),
       isFav: true);
 
   @override

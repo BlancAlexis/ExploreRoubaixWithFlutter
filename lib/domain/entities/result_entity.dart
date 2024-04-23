@@ -1,6 +1,7 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:template_flutter_but/domain/entities/photo_entity.dart';
 
+import '../../data/local/database_model/geo_point_2d_model_database.dart';
 import '../../data/local/database_model/result_model_database.dart';
 
 class ResultEntity {
@@ -94,8 +95,9 @@ class ResultEntity {
         codeDepartement: codeDepartement,
         insee: insee,
         adresseBanSig: adresseBanSig,
-        geoPoint2D: geoPoint2D,
-      );
+        geoPoint2D: LatLngAdapter(latitude : geoPoint2D.latitude, longitude :geoPoint2D.longitude),
+
+  );
 
   @override
   String toString() {

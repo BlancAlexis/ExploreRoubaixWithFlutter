@@ -8,7 +8,7 @@ part of 'result_model_database.dart';
 
 class ResultModelDatabaseAdapter extends TypeAdapter<ResultModelDatabase> {
   @override
-  final int typeId = 3;
+  final int typeId = 4;
 
   @override
   ResultModelDatabase read(BinaryReader reader) {
@@ -37,7 +37,7 @@ class ResultModelDatabaseAdapter extends TypeAdapter<ResultModelDatabase> {
       codeDepartement: fields[17] as int,
       insee: fields[18] as int,
       adresseBanSig: fields[19] as String,
-      geoPoint2D: fields[20] as LatLng,
+      geoPoint2D: fields[20] as LatLngAdapter,
       isFav: fields[21] as bool,
     );
   }

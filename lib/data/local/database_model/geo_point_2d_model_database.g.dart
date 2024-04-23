@@ -6,31 +6,30 @@ part of 'geo_point_2d_model_database.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class GeoPoint2DModelDatabaseAdapter
-    extends TypeAdapter<GeoPoint2DModelDatabase> {
+class LatLngAdapterAdapter extends TypeAdapter<LatLngAdapter> {
   @override
-  final int typeId = 0;
+  final int typeId = 1;
 
   @override
-  GeoPoint2DModelDatabase read(BinaryReader reader) {
+  LatLngAdapter read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return GeoPoint2DModelDatabase(
-      lon: fields[0] as double,
-      lat: fields[1] as double,
+    return LatLngAdapter(
+      latitude: fields[0] as double,
+      longitude: fields[1] as double,
     );
   }
 
   @override
-  void write(BinaryWriter writer, GeoPoint2DModelDatabase obj) {
+  void write(BinaryWriter writer, LatLngAdapter obj) {
     writer
       ..writeByte(2)
       ..writeByte(0)
-      ..write(obj.lon)
+      ..write(obj.latitude)
       ..writeByte(1)
-      ..write(obj.lat);
+      ..write(obj.longitude);
   }
 
   @override
@@ -39,7 +38,7 @@ class GeoPoint2DModelDatabaseAdapter
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is GeoPoint2DModelDatabaseAdapter &&
+      other is LatLngAdapterAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

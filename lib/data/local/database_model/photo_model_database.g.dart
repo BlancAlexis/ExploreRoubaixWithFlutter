@@ -8,7 +8,7 @@ part of 'photo_model_database.dart';
 
 class PhotoModelDatabaseAdapter extends TypeAdapter<PhotoModelDatabase> {
   @override
-  final int typeId = 1;
+  final int typeId = 2;
 
   @override
   PhotoModelDatabase read(BinaryReader reader) {

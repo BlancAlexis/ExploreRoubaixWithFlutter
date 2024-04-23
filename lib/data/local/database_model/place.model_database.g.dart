@@ -8,7 +8,7 @@ part of 'place.model_database.dart';
 
 class PlaceModelDatabaseAdapter extends TypeAdapter<PlaceModelDatabase> {
   @override
-  final int typeId = 2;
+  final int typeId = 3;
 
   @override
   PlaceModelDatabase read(BinaryReader reader) {
