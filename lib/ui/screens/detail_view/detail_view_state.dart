@@ -22,5 +22,5 @@ class DetailViewState extends ViewStateAbs {
         resultEntity,
       ];
 
-  // TODO  Comment géré state
+// TODO  Comment géré state
 }

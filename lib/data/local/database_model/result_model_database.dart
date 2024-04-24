@@ -121,7 +121,7 @@ class ResultModelDatabase extends HiveObject {
       codeDepartement: codeDepartement,
       insee: insee,
       adresseBanSig: adresseBanSig,
-      geoPoint2D:  LatLng(geoPoint2D.latitude, geoPoint2D.longitude),
+      geoPoint2D: LatLng(geoPoint2D.latitude, geoPoint2D.longitude),
       isFav: true);
 
   @override

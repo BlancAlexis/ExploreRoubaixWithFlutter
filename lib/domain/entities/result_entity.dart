@@ -95,9 +95,9 @@ class ResultEntity {
         codeDepartement: codeDepartement,
         insee: insee,
         adresseBanSig: adresseBanSig,
-        geoPoint2D: LatLngAdapter(latitude : geoPoint2D.latitude, longitude :geoPoint2D.longitude),
-
-  );
+        geoPoint2D: LatLngAdapter(
+            latitude: geoPoint2D.latitude, longitude: geoPoint2D.longitude),
+      );
 
   @override
   String toString() {

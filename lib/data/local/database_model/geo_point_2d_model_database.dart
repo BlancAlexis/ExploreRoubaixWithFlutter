@@ -2,7 +2,6 @@ import 'package:hive/hive.dart';
 
 part 'geo_point_2d_model_database.g.dart';
 
-
 @HiveType(typeId: 1)
 class LatLngAdapter extends HiveObject {
   @HiveField(0)

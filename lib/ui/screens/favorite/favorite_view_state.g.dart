@@ -7,7 +7,7 @@ part of 'favorite_view_state.dart';
 // **************************************************************************
 
 abstract class _$FavoriteViewStateCWProxy {
-  FavoriteViewState listrResultEntity(List<ResultEntity>? listrResultEntity);
+  FavoriteViewState listrResultEntity(List<ResultEntity> listrResultEntity);
 
   FavoriteViewState loading(bool loading);
 
@@ -30,7 +30,7 @@ class _$FavoriteViewStateCWProxyImpl implements _$FavoriteViewStateCWProxy {
   final FavoriteViewState _value;
 
   @override
-  FavoriteViewState listrResultEntity(List<ResultEntity>? listrResultEntity) =>
+  FavoriteViewState listrResultEntity(List<ResultEntity> listrResultEntity) =>
       this(listrResultEntity: listrResultEntity);
 
   @override
@@ -49,10 +49,11 @@ class _$FavoriteViewStateCWProxyImpl implements _$FavoriteViewStateCWProxy {
     Object? loading = const $CopyWithPlaceholder(),
   }) {
     return FavoriteViewState(
-      listrResultEntity: listrResultEntity == const $CopyWithPlaceholder()
+      listrResultEntity: listrResultEntity == const $CopyWithPlaceholder() ||
+              listrResultEntity == null
           ? _value.listrResultEntity
           // ignore: cast_nullable_to_non_nullable
-          : listrResultEntity as List<ResultEntity>?,
+          : listrResultEntity as List<ResultEntity>,
       loading: loading == const $CopyWithPlaceholder() || loading == null
           ? _value.loading
           // ignore: cast_nullable_to_non_nullable

@@ -66,7 +66,7 @@ class _DetailViewModal extends ConsumerState<DetailViewScreen> {
             ),
             Text(state.resultEntity?.adresseBanSig ?? ''),
             Text(
-                'Latitude: ${state.resultEntity?.geoPoint2D.latitude.toString().substring(0, 6) ?? ''} Longitude: ${state.resultEntity?.geoPoint2D.longitude.toString().substring(0, 6) ?? ''}',
+                'Latitude: ${state.resultEntity?.geoPoint2D.latitude.toString().substring(0, 3) ?? ''} Longitude: ${state.resultEntity?.geoPoint2D.longitude.toString().substring(0, 3) ?? ''}',
                 style:
                     const TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
             Text(

@@ -7,14 +7,14 @@ part 'favorite_view_state.g.dart';
 
 @CopyWith()
 class FavoriteViewState extends ViewStateAbs {
-  List<ResultEntity>? listrResultEntity = null;
+  List<ResultEntity> listrResultEntity;
   bool loading = true;
 
   FavoriteViewState({required this.listrResultEntity, required this.loading});
 
   FavoriteViewState.initial()
       : loading = true,
-        listrResultEntity = null;
+        listrResultEntity = <ResultEntity>[];
 
   FavoriteViewState.noFav()
       : loading = false,
