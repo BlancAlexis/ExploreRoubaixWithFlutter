@@ -4,7 +4,7 @@ class PaginationScrollController {
   late ScrollController scrollController;
   bool isLoading = false;
   bool stopLoading = false;
-  int currentPage = 1;
+  int currentMaxItem = 1;
   double boundaryOffset = 0.5;
   late Function loadAction;
 
@@ -29,8 +29,8 @@ class PaginationScrollController {
         isLoading = true;
         loadAction().then((shouldStop) {
           isLoading = false;
-          currentPage++;
-          boundaryOffset = 1 - 1 / (currentPage * 2);
+          currentMaxItem++;
+          boundaryOffset = 1 - 1 / (currentMaxItem * 2);
           if (shouldStop == true) {
             stopLoading = true;
           }

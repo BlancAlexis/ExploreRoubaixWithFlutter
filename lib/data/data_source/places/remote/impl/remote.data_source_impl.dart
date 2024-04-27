@@ -12,8 +12,7 @@ class PlacesRemoteDataSourceImpl implements PlacesRemoteDataSource {
       : _placesEndpoint = placesEndpoint;
 
   @override
-  Future<PlaceModel> getPlaces() {
-    print('on fetch');
-    return _placesEndpoint.getPlaces();
+  Future<PlaceModel> getPlaces(int offest) {
+    return _placesEndpoint.getPlaces(offset : offest,limit: LIMIT);
   }
 }

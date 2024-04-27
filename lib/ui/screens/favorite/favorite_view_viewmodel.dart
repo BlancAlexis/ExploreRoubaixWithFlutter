@@ -21,7 +21,6 @@ class FavoritePlaceViewModel
   final PlacesLocalRepository _placesRepository;
 
   init() async {
-    print('anjanj');
     await getFavoritePlaces();
   }
 

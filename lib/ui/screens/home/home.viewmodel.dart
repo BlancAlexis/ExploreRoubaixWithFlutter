@@ -14,6 +14,7 @@ final StateNotifierProvider<HomeViewModel, HomeState> homeProvider =
 
 class HomeViewModel extends ViewModelAbs<HomeViewModel, HomeState> {
   final PlaceEntitySingleton placeEntitySingleton;
+  int maxIndex = 0;
 
   HomeViewModel({required this.placeEntitySingleton})
       : super(const HomeState.initial()) {
@@ -21,7 +22,7 @@ class HomeViewModel extends ViewModelAbs<HomeViewModel, HomeState> {
   }
 
   void loadMore() {
-    placeEntitySingleton.fetchPlaces();
+    placeEntitySingleton.g(maxIndex);
   }
 
   void updateLoading(bool value) {
@@ -31,6 +32,7 @@ class HomeViewModel extends ViewModelAbs<HomeViewModel, HomeState> {
   void _init() async {
     updateLoading(true);
     placeEntitySingleton.dataStream.listen((event) {
+      maxIndex = event.details.length;
       state = state.copyWith(listPlace: event);
     });
     updateLoading(false);

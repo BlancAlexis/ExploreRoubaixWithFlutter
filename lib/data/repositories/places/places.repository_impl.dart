@@ -19,8 +19,8 @@ class PlacesRepositoryImpl implements PlacesRepository {
         _favoriteDataSource = localFavoriteDataSource;
 
   @override
-  Future<PlaceEntity> getPlaces() async {
-    final PlaceModel model = await _placesRemoteDataSource.getPlaces();
+  Future<PlaceEntity> getPlaces(int offest) async {
+    final PlaceModel model = await _placesRemoteDataSource.getPlaces(offest);
     PlaceEntity entity = model.toEntity;
     entity.details.forEach((detail) async {
       final Result<bool> isFav =

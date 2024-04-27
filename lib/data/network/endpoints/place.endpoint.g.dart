@@ -19,9 +19,15 @@ class _PlacesEndpoint implements PlacesEndpoint {
   String? baseUrl;
 
   @override
-  Future<PlaceModel> getPlaces({int limit = 20}) async {
+  Future<PlaceModel> getPlaces({
+    required int offset,
+    required int limit,
+  }) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'limit': limit};
+    final queryParameters = <String, dynamic>{
+      r'offset': offset,
+      r'limit': limit,
+    };
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio

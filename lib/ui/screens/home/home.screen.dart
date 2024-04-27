@@ -19,9 +19,9 @@ class _HomeScreeenState extends ConsumerState<HomeScreen> {
 
   @override
   void initState() {
-    super.initState();
     paginationScrollController.init(
         loadAction: () async => {ref.read(homeProvider.notifier).loadMore()});
+    super.initState();
   }
 
   @override
@@ -44,7 +44,7 @@ class _HomeScreeenState extends ConsumerState<HomeScreen> {
                 slivers: <Widget>[
                   SliverList(
                     delegate: SliverChildBuilderDelegate((context, index) {
-                      final place = state.listPlace!.details![index];
+                      final place = state.listPlace!.details[index];
                       return GestureDetector(
                           onTap: () {
                             showModalBottomSheet(
@@ -72,7 +72,6 @@ class _HomeScreeenState extends ConsumerState<HomeScreen> {
                                     decoration: BoxDecoration(
                                       gradient: LinearGradient(
                                         colors: [
-                                          Colors.yellow,
                                           Colors.orangeAccent,
                                           Colors.yellow.shade300,
                                         ],

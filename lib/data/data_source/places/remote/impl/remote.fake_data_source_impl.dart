@@ -15,7 +15,7 @@ class FakePlacesRemoteDataSourceImpl implements PlacesRemoteDataSource {
   }
 
   @override
-  Future<PlaceModel> getPlaces() async {
+  Future<PlaceModel> getPlaces(int offset) async {
     Map<String, dynamic> fakeData =
         await loadJsonFromAssets('assets/json/data.json');
     return PlaceModel.fromJson(fakeData);
