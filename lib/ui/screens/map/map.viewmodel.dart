@@ -34,7 +34,7 @@ class MapsViewModel extends ViewModelAbs<MapsViewModel, MapsState> {
       listPlace: placeEntitySingleton.places,
       markers: updateMarkers(placeEntitySingleton.places),
     );
-    placeEntitySingleton.dataStream.listen((event) {
+    placeEntitySingleton.dataStream.listen((PlaceEntity event) {
       state = state.copyWith(
         listPlace: event,
         markers: updateMarkers(event),
@@ -44,8 +44,7 @@ class MapsViewModel extends ViewModelAbs<MapsViewModel, MapsState> {
   }
 
   List<Marker>? updateMarkers(PlaceEntity places) {
-    final markers = places.details
-        ?.map((place) => Marker(
+    final markers = places.details.map((place) => Marker(
             markerId: MarkerId(place.monumHisComId.toString()),
             position: place.geoPoint2D,
             infoWindow: InfoWindow(title: place.appellationCourante)))

@@ -21,21 +21,14 @@ class DetailViewViewModel
     extends ViewModelAbs<DetailViewViewModel, DetailViewState> {
   final PlacesLocalRepository _placesRepository;
 
+  DetailViewViewModel({required PlacesLocalRepository placesRepository})
+      : _placesRepository = placesRepository,
+        super(DetailViewState.initial());
+
   init(ResultEntity resultEntity) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       state = state.copyWith(resultEntity: resultEntity);
     });
-  }
-
-  Future<List<ResultEntity>> getFavoritePlaces() async {
-    Result<List<ResultEntity>> result =
-        await _placesRepository.getFavoritePlaces();
-    if (result is Success) {
-      return (result as Success<List<ResultEntity>>).data;
-    } else {
-      //   print(${(result as Error).exception});
-      return [];
-    }
   }
 
   Future<void> putFavPlaces(ResultEntity resultEntity) async {
@@ -62,7 +55,14 @@ class DetailViewViewModel
     }
   }
 
-  DetailViewViewModel({required PlacesLocalRepository placesRepository})
-      : _placesRepository = placesRepository,
-        super(DetailViewState.initial());
-}
+  Future<void> choiceAction(ResultEntity resultEntity) async {
+    if(resultEntity.isFav){
+      removeFavPlaces(resultEntity);
+    }
+    else{
+      putFavPlaces(resultEntity);
+    }
+  }
+
+
+  }

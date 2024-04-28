@@ -5,7 +5,7 @@ import '../../data/local/database_model/geo_point_2d_model_database.dart';
 import '../../data/local/database_model/result_model_database.dart';
 
 class ResultEntity {
-  late bool isFav = false;
+ bool isFav;
   final int monumHisComId;
 
   final String appellationCourante;
@@ -70,7 +70,7 @@ class ResultEntity {
       required this.insee,
       required this.adresseBanSig,
       required this.geoPoint2D,
-      bool isFav = false});
+      required this.isFav});
 
   // Forcément ça marche pas puisque y'a pas de champs isFav
 

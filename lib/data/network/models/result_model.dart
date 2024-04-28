@@ -79,6 +79,7 @@ class ResultModel {
         insee: insee ?? 1,
         adresseBanSig: adresseBanSig,
         geoPoint2D: geoPoint2D ?? const LatLng(50.69421, 3.17456),
+    isFav: false
       );
 
   factory ResultModel.fromJson(Map<String, dynamic> json) =>
