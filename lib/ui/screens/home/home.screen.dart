@@ -35,6 +35,7 @@ class _HomeScreeenState extends ConsumerState<HomeScreen> {
     final HomeState state = ref.watch(homeProvider);
 
     return Scaffold(
+      backgroundColor: Color.fromRGBO(85, 107, 47, 0.9),
         body: state.loading
             ? const Center(
                 child: CircularProgressIndicator(),
@@ -42,9 +43,20 @@ class _HomeScreeenState extends ConsumerState<HomeScreen> {
             : CustomScrollView(
                 controller: paginationScrollController.scrollController,
                 slivers: <Widget>[
+                  SliverAppBar(
+                    title: Text('Monuments Historiques Roubaix'),
+                    flexibleSpace: FlexibleSpaceBar(
+                      title: Text('Découvrez les monuments!'), //// Your stretchable text
+                      background: Container( // Replace Image.asset with Container
+                        color: Color.fromRGBO(245, 245, 245, 1.0), // Set the desired background color
+                        height: 200, // Adjust the height if needed
+                      ),
+                    ),
+                    expandedHeight: 200, // Adjust the height as needed
+                  ),
                   SliverList(
                     delegate: SliverChildBuilderDelegate((context, index) {
-                      final place = state.listPlace!.details![index];
+                      final place = state.listPlace!.details[index];
                       return GestureDetector(
                           onTap: () {
                             showModalBottomSheet(
@@ -58,91 +70,77 @@ class _HomeScreeenState extends ConsumerState<HomeScreen> {
                               ),
                             );
                           },
-                          child: Container(
                               child: Card(
                                   shape: RoundedRectangleBorder(
                                     side: const BorderSide(
-                                      color: Colors.blue,
+                                      color: Colors.black,
                                     ),
                                     borderRadius: BorderRadius.circular(5),
                                   ),
-                                  color: Colors.blue,
+                                  color: Color.fromRGBO(5, 107, 47, 1.0),
                                   elevation: 8,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          Colors.yellow,
-                                          Colors.orangeAccent,
-                                          Colors.yellow.shade300,
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Column(children: [
+                                            if (place.photo != null)
+                                              ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(5),
+                                                child: SizedBox(
+                                                    width: 100,
+                                                    height: 85,
+                                                    child: Image.network(
+                                                      place.photo!.url!,
+                                                      fit: BoxFit.cover,
+                                                    )),
+                                              ),
+                                          ]),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Center(
+                                                      child: Text(
+                                                          "${place.appellationCourante}")),
+                                                ],
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Center(
+                                                      child: Text(
+                                                          "${place.adresseBanSig} ${place.epoque}",
+                                                          overflow:
+                                                              TextOverflow
+                                                                  .ellipsis)),
+                                                ],
+                                              )
+                                            ],
+                                          ),
                                         ],
-                                        begin: Alignment.topLeft,
-                                        end: Alignment.bottomRight,
                                       ),
-                                    ),
-                                    child: Column(
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Column(children: [
-                                              if (place.photo != null)
-                                                ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(5),
-                                                  child: SizedBox(
-                                                      width: 100,
-                                                      height: 85,
-                                                      child: Image.network(
-                                                        place.photo!.url!,
-                                                        fit: BoxFit.cover,
-                                                      )),
-                                                ),
-                                            ]),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Center(
-                                                        child: Text(
-                                                            "${place.appellationCourante}")),
-                                                  ],
-                                                ),
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Center(
-                                                        child: Text(
-                                                            "${place.adresseBanSig} ${place.epoque}",
-                                                            overflow:
-                                                                TextOverflow
-                                                                    .ellipsis)),
-                                                  ],
-                                                )
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          children: [
-                                            Text("${place.auteur}",
-                                                style: const TextStyle(
-                                                    fontSize: 10),
-                                                overflow: TextOverflow.clip)
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ))));
-                    }, childCount: state.listPlace?.details?.length ?? 0),
+                                      Row(
+                                        children: [
+                                          Text("${place.auteur}",
+                                              style: const TextStyle(
+                                                  fontSize: 10),
+                                              overflow: TextOverflow.clip)
+                                        ],
+                                      ),
+                                    ],
+                                  )));
+                    }, childCount: state.listPlace?.details.length),
                   ),
                 ],
               ));
