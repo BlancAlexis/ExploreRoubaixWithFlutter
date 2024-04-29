@@ -18,7 +18,7 @@ class LocalRepositoryImpl implements PlacesLocalRepository {
       if (value is Success) {
         return Success(
             data: List<ResultEntity>.from(
-                (value as Success).data.map((e) => e.toEntity).toList()));
+                (value as Success).data.map((e) => e.databaseToEntity).toList()));
       } else {
         return Error(exception: (value as Error).exception);
       }

@@ -9,7 +9,7 @@ part of 'home.state.dart';
 abstract class _$HomeStateCWProxy {
   HomeState loading(bool loading);
 
-  HomeState listPlace(PlaceEntity? listPlace);
+  HomeState listPlace(List<ResultEntity> listPlace);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `HomeState(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -19,7 +19,7 @@ abstract class _$HomeStateCWProxy {
   /// ````
   HomeState call({
     bool? loading,
-    PlaceEntity? listPlace,
+    List<ResultEntity>? listPlace,
   });
 }
 
@@ -33,7 +33,8 @@ class _$HomeStateCWProxyImpl implements _$HomeStateCWProxy {
   HomeState loading(bool loading) => this(loading: loading);
 
   @override
-  HomeState listPlace(PlaceEntity? listPlace) => this(listPlace: listPlace);
+  HomeState listPlace(List<ResultEntity> listPlace) =>
+      this(listPlace: listPlace);
 
   @override
 
@@ -52,10 +53,10 @@ class _$HomeStateCWProxyImpl implements _$HomeStateCWProxy {
           ? _value.loading
           // ignore: cast_nullable_to_non_nullable
           : loading as bool,
-      listPlace: listPlace == const $CopyWithPlaceholder()
+      listPlace: listPlace == const $CopyWithPlaceholder() || listPlace == null
           ? _value.listPlace
           // ignore: cast_nullable_to_non_nullable
-          : listPlace as PlaceEntity?,
+          : listPlace as List<ResultEntity>,
     );
   }
 }

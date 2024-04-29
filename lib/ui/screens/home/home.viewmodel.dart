@@ -17,7 +17,7 @@ class HomeViewModel extends ViewModelAbs<HomeViewModel, HomeState> {
   int maxIndex = 0;
 
   HomeViewModel({required this.placeEntitySingleton})
-      : super(const HomeState.initial()) {
+      : super(HomeState.initial()) {
     _init();
   }
 
@@ -31,9 +31,10 @@ class HomeViewModel extends ViewModelAbs<HomeViewModel, HomeState> {
 
   void _init() async {
     updateLoading(true);
-    placeEntitySingleton.dataStream.listen((event) {
+    placeEntitySingleton.placesStream.stream.listen((event) {
+      print("on receive");
       maxIndex = event.details.length;
-      state = state.copyWith(listPlace: event);
+      state = state.copyWith(listPlace: state.listPlace + event.details);
     });
     updateLoading(false);
   }

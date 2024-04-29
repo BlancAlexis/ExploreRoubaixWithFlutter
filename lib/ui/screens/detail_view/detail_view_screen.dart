@@ -97,7 +97,7 @@ class _DetailViewModal extends ConsumerState<DetailViewScreen> {
                 onTap: (isLiked) async {
                   await ref
                       .read(detailProvider.notifier)
-                      .putFavPlaces(state.resultEntity!);
+                      .choiceAction(state.resultEntity!);
                   return !isLiked;
                 },
                 circleColor: CircleColor(
@@ -106,9 +106,13 @@ class _DetailViewModal extends ConsumerState<DetailViewScreen> {
                     dotPrimaryColor: Color(0xffe57fa6),
                     dotSecondaryColor: Color(0xff907fbc)),
                 likeBuilder: (bool isLiked) {
+                  final bool isInitiallyLiked =
+                      state.resultEntity?.isFav ?? false;
                   return Icon(
                     Icons.favorite,
-                    color: isLiked ? Colors.red : Colors.grey,
+                    color: isInitiallyLiked
+                        ? Colors.red
+                        : (isLiked ? Colors.red : Colors.grey),
                     size: 35.0,
                   );
                 },

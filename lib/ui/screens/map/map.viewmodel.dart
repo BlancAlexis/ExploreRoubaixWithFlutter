@@ -31,12 +31,12 @@ class MapsViewModel extends ViewModelAbs<MapsViewModel, MapsState> {
     updateLoading(true);
     state = state.copyWith(
       loading: false,
-      listPlace: placeEntitySingleton.places,
+      listPlace: placeEntitySingleton.places.details,
       markers: updateMarkers(placeEntitySingleton.places),
     );
-    placeEntitySingleton.dataStream.listen((event) {
+    placeEntitySingleton.placesStream.stream.listen((PlaceEntity event) {
       state = state.copyWith(
-        listPlace: event,
+        listPlace: event.details ,
         markers: updateMarkers(event),
       );
     });
@@ -44,8 +44,7 @@ class MapsViewModel extends ViewModelAbs<MapsViewModel, MapsState> {
   }
 
   List<Marker>? updateMarkers(PlaceEntity places) {
-    final markers = places.details
-        ?.map((place) => Marker(
+    final markers = places.details.map((place) => Marker(
             markerId: MarkerId(place.monumHisComId.toString()),
             position: place.geoPoint2D,
             infoWindow: InfoWindow(title: place.appellationCourante)))

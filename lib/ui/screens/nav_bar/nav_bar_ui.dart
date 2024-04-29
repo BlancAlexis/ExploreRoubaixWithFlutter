@@ -24,6 +24,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Color.fromRGBO(85, 107, 47, 0.9),
       appBar: AppBar(
         title: Text('TenorFlut'),
       ),

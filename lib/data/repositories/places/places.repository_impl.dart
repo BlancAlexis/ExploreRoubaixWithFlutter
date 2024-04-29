@@ -25,12 +25,12 @@ class PlacesRepositoryImpl implements PlacesRepository {
     entity.details.forEach((detail) async {
       final Result<bool> isFav =
           await _favoriteDataSource.isFavorite(detail.monumHisComId);
-      detail.isFav = decode(isFav); // Update isFav directly
+      detail.isFav = isMonumentFavorite(isFav); // Update isFav directly
     });
     return entity;
   }
 
-  bool decode(Result<bool> resultEntity) {
+  bool isMonumentFavorite(Result<bool> resultEntity) {
     if (resultEntity is Success) {
       print('Success');
       return (resultEntity as Success<bool>).data;

@@ -100,7 +100,7 @@ class ResultModelDatabase extends HiveObject {
       required this.geoPoint2D,
       this.isFav = false});
 
-  ResultEntity get toEntity => ResultEntity(
+  ResultEntity get databaseToEntity => ResultEntity(
       monumHisComId: monumHisComId,
       appellationCourante: appellationCourante,
       photo: photo?.toEntity,

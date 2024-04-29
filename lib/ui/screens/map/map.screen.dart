@@ -52,7 +52,7 @@ class MapSampleState extends ConsumerState<MapSample> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     DetailViewScreen(
-                        resultEntity: state.listPlace!.details![index]),
+                        resultEntity: state.listPlace[index]),
                   ],
                 ),
               )

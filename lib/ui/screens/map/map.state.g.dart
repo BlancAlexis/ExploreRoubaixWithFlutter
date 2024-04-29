@@ -9,7 +9,7 @@ part of 'map.state.dart';
 abstract class _$MapsStateCWProxy {
   MapsState loading(bool loading);
 
-  MapsState listPlace(PlaceEntity? listPlace);
+  MapsState listPlace(List<ResultEntity> listPlace);
 
   MapsState markers(List<Marker> markers);
 
@@ -21,7 +21,7 @@ abstract class _$MapsStateCWProxy {
   /// ````
   MapsState call({
     bool? loading,
-    PlaceEntity? listPlace,
+    List<ResultEntity>? listPlace,
     List<Marker>? markers,
   });
 }
@@ -36,7 +36,8 @@ class _$MapsStateCWProxyImpl implements _$MapsStateCWProxy {
   MapsState loading(bool loading) => this(loading: loading);
 
   @override
-  MapsState listPlace(PlaceEntity? listPlace) => this(listPlace: listPlace);
+  MapsState listPlace(List<ResultEntity> listPlace) =>
+      this(listPlace: listPlace);
 
   @override
   MapsState markers(List<Marker> markers) => this(markers: markers);
@@ -59,10 +60,10 @@ class _$MapsStateCWProxyImpl implements _$MapsStateCWProxy {
           ? _value.loading
           // ignore: cast_nullable_to_non_nullable
           : loading as bool,
-      listPlace: listPlace == const $CopyWithPlaceholder()
+      listPlace: listPlace == const $CopyWithPlaceholder() || listPlace == null
           ? _value.listPlace
           // ignore: cast_nullable_to_non_nullable
-          : listPlace as PlaceEntity?,
+          : listPlace as List<ResultEntity>,
       markers: markers == const $CopyWithPlaceholder() || markers == null
           ? _value.markers
           // ignore: cast_nullable_to_non_nullable

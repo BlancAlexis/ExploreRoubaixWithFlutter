@@ -1,5 +1,6 @@
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:template_flutter_but/domain/entities/result_entity.dart';
 import 'package:template_flutter_but/ui/abstraction/view_state_abs.dart';
 
 import '../../../domain/entities/place.entity.dart';
@@ -11,7 +12,7 @@ class MapsState extends ViewStateAbs {
   final LatLng roubaixLatLng = const LatLng(50.69421, 3.17456);
 
   final bool loading;
-  final PlaceEntity? listPlace;
+  final List<ResultEntity> listPlace;
   final List<Marker> markers;
 
   const MapsState({
@@ -22,18 +23,18 @@ class MapsState extends ViewStateAbs {
 
   MapsState.initial()
       : loading = false,
-        listPlace = null,
+        listPlace = <ResultEntity>[],
         markers = const <Marker>[];
 
   MapsState copyWith({
     bool? loading,
-    PlaceEntity? listPlace,
+    List<ResultEntity>? listPlace,
     List<Marker>? markers,
   }) =>
       MapsState(
-        loading: loading ?? this.loading,
-        listPlace: listPlace ?? this.listPlace,
-        markers: markers ?? this.markers,
+        loading: this.loading,
+        listPlace: this.listPlace,
+        markers: this.markers,
       );
 
   @override
