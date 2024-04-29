@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:template_flutter_but/domain/entities/result_entity.dart';
 import 'package:template_flutter_but/ui/screens/favorite/favorite_view_state.dart';
 import 'package:template_flutter_but/ui/screens/favorite/favorite_view_viewmodel.dart';
 
@@ -40,62 +41,87 @@ class _FavoriteViewScreen extends ConsumerState<FavoriteViewScreen> {
                       ],
                     ),
                   ))
-                : CustomScrollView(
-                    slivers: <Widget>[
-                      SliverGrid(
-                        gridDelegate:
-                            const SliverGridDelegateWithMaxCrossAxisExtent(
-                              maxCrossAxisExtent: 250.0,
-                              mainAxisSpacing: 10.0,
-                              crossAxisSpacing: 10.0,
-                        ),
-                        delegate: SliverChildBuilderDelegate(
-                          (BuildContext context, int index) {
-                            var resultEntity = state.listrResultEntity[index];
-                            return GestureDetector(
-                              onTap: () {
-                                showModalBottomSheet(
-                                  showDragHandle: true,
-                                  isScrollControlled: true,
-                                  context: context,
-                                  builder: (BuildContext context) => Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      DetailViewScreen(
-                                          resultEntity: resultEntity),
-                                    ],
-                                  ),
-                                );
-                              },
-                              child: Card(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
-                                child: Column (
-                                  children: [
-                                    Row(
+                : Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: CustomScrollView(
+                      slivers: <Widget>[
+                        SliverGrid(
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2),
+                          delegate: SliverChildBuilderDelegate(
+                            (BuildContext context, int index) {
+                              ResultEntity resultEntity = state.listrResultEntity[index];
+                              return GestureDetector(
+                                onTap: () {
+                                  showModalBottomSheet(
+                                    showDragHandle: true,
+                                    isScrollControlled: true,
+                                    context: context,
+                                    builder: (BuildContext context) => Column(
+                                      mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        Image.network(
-                                          resultEntity.photo!.url!,
-                                          fit: BoxFit.cover,
-                                        ),
+                                        DetailViewScreen(
+                                            resultEntity: resultEntity),
                                       ],
                                     ),
-                                    Row(
-children: [
-  Text(  resultEntity.appellationCourante,)
-],
-                                    )
-                                  ],
-
-                                )
-                              ),
-                            );
-                          },
-                          childCount: state.listrResultEntity.length,
+                                  );
+                                },
+                                child: Card(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    ),
+                                    child: Column(
+                                      children: <Widget>[
+                                        Row(
+                                          children: <Widget>[
+                                            Expanded(
+                                              child: ClipRRect(
+                                                child: SizedBox(
+                                                  height: 200,
+                                                  child: Image.network(
+                                                    resultEntity.photo!.url!,
+                                                    fit: BoxFit.fitWidth,
+                                                  ),
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                        Row(
+                                          children: <Widget>[
+                                            Expanded(
+                                              child: Center(
+                                                child: Text(
+                                                  resultEntity.appellationCourante,
+                                                  style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 16.0,
+                                                    fontWeight: FontWeight.bold,
+                                                    shadows: [
+                                                      Shadow(
+                                                        offset: const Offset(
+                                                            2.0, 2.0),
+                                                        blurRadius: 4.0,
+                                                        color: Colors.black
+                                                            .withOpacity(0.5),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    )),
+                              );
+                            },
+                            childCount: state.listrResultEntity.length,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ));
   }
 
